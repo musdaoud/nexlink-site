@@ -147,5 +147,25 @@
     new IntersectionObserver(([e]) => hud.classList.toggle('is-hidden', e.isIntersecting)).observe(footer);
   }
 
+  /* mobile action bar: appears after the hero, steps aside for contact/footer and the menu */
+  const mCta = document.getElementById('m-cta');
+  if (mCta) {
+    let blocked = false;
+    const blockers = new Set();
+    const update = () => {
+      const shown = window.scrollY > window.innerHeight * .75 && !blocked && !body.classList.contains('menu-open');
+      mCta.classList.toggle('is-shown', shown);
+    };
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting ? blockers.add(e.target) : blockers.delete(e.target));
+      blocked = blockers.size > 0;
+      update();
+    }, { rootMargin: '0px 0px -30% 0px' });
+    ['.contact-grid .form', '.footer'].forEach(sel => { const el = document.querySelector(sel); el && io.observe(el); });
+    window.addEventListener('scroll', update, { passive: true });
+    burger.addEventListener('click', update);
+    update();
+  }
+
   document.getElementById('year').textContent = new Date().getFullYear();
 })();

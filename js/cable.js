@@ -49,7 +49,7 @@
   let intro = reduced ? null : { t0: 0, crimped: false, started: false };
   const packets = [];
   let spawnIn = 0;
-  const hudLen = document.getElementById('hud-len');
+  const hudLen = [...document.querySelectorAll('#hud-len, [data-hud-len]')];
 
   // per-frame buffers
   let cap = 0, CX, CY, CNX, CNY, CS, CF, CD, CU;
@@ -266,9 +266,9 @@
       window.dispatchEvent(new CustomEvent('cable:link', { detail: conn }));
     }
 
-    if (hudLen) {
+    if (hudLen.length) {
       const len = (tip / 160).toFixed(2) + ' m';
-      if (len !== lastLen) { hudLen.textContent = len; lastLen = len; }
+      if (len !== lastLen) { hudLen.forEach(el => { el.textContent = len; }); lastLen = len; }
     }
   }
 
@@ -395,7 +395,7 @@
     if (!reduced && !prog) {
       spawnIn -= dt;
       if (spawnIn <= 0) {
-        spawnIn = .18 + Math.random() * .4;
+        spawnIn = (vw < 900 ? .4 : .18) + Math.random() * .4;
         packets.push({ s: CS[0], v: 650 + Math.random() * 600, c: PACKET_COLORS[(Math.random() * 4) | 0], lane: (Math.random() * 2 - 1) * 2.4 });
       }
       ctx.globalCompositeOperation = 'lighter';
