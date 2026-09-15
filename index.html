@@ -130,8 +130,8 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <div class="mm-contact">
-        <a href="mailto:hello@hyperlink.example">hello@hyperlink.example</a>
-        <a href="tel:+000000000">+00 (0) 000 000 000</a>
+        <a data-contact="email" href="mailto:contact@hyperlink.example">contact@hyperlink.example</a>
+        <a data-contact="phone" href="tel:+213000000000">+213 (0) 00 00 00 00</a>
       </div>
       <span class="mm-status"><i class="led"></i><span data-link-text>Link down</span></span>
     </div>
@@ -165,7 +165,7 @@
           </div>
           <ul class="hero-specs" data-in style="--d:.55s">
             <li><b>CAT6A</b><span data-i18n="hero.spec1">Cabling</span></li>
-            <li><b>ISO</b><span data-i18n="hero.spec2">Consulting</span></li>
+            <li><b>ISO</b><span data-i18n="hero.spec2">Certification</span></li>
             <li><b>24/7</b><span data-i18n="hero.spec3">Support</span></li>
           </ul>
         </div>
@@ -185,71 +185,139 @@
     <!-- ============ MARQUEE ============ -->
     <div class="band" aria-hidden="true">
       <div class="band-track">
-        <div class="band-item"><i style="--c:#00F0FF"></i><span data-i18n="band.1">Networks</span><i style="--c:#1E6BFF"></i><span data-i18n="band.2">Structured cabling</span><i style="--c:#E6E6E6"></i><span data-i18n="band.3">Cybersecurity</span><i style="--c:#00F0FF"></i><span data-i18n="band.4">ISO consulting</span><i style="--c:#3BA0FF"></i><span data-i18n="band.5">Datacenter &amp; cloud</span><i style="--c:#E6E6E6"></i><span data-i18n="band.6">Integrated solutions</span></div>
-        <div class="band-item"><i style="--c:#00F0FF"></i><span data-i18n="band.1">Networks</span><i style="--c:#1E6BFF"></i><span data-i18n="band.2">Structured cabling</span><i style="--c:#E6E6E6"></i><span data-i18n="band.3">Cybersecurity</span><i style="--c:#00F0FF"></i><span data-i18n="band.4">ISO consulting</span><i style="--c:#3BA0FF"></i><span data-i18n="band.5">Datacenter &amp; cloud</span><i style="--c:#E6E6E6"></i><span data-i18n="band.6">Integrated solutions</span></div>
+        <div class="band-item"><i style="--c:#00F0FF"></i><span data-i18n="band.1">Networks</span><i style="--c:#1E6BFF"></i><span data-i18n="band.2">Cabling &amp; fiber</span><i style="--c:#E6E6E6"></i><span data-i18n="band.3">Video surveillance</span><i style="--c:#00F0FF"></i><span data-i18n="band.4">Access control</span><i style="--c:#3BA0FF"></i><span data-i18n="band.5">Fire detection</span><i style="--c:#E6E6E6"></i><span data-i18n="band.6">ISO certification</span></div>
+        <div class="band-item"><i style="--c:#00F0FF"></i><span data-i18n="band.1">Networks</span><i style="--c:#1E6BFF"></i><span data-i18n="band.2">Cabling &amp; fiber</span><i style="--c:#E6E6E6"></i><span data-i18n="band.3">Video surveillance</span><i style="--c:#00F0FF"></i><span data-i18n="band.4">Access control</span><i style="--c:#3BA0FF"></i><span data-i18n="band.5">Fire detection</span><i style="--c:#E6E6E6"></i><span data-i18n="band.6">ISO certification</span></div>
       </div>
     </div>
 
-    <!-- ============ SOLUTIONS ============ -->
+    <!-- ============ SERVICES — two pillars (sub-services are drafts until the client sends his list) ============ -->
     <section class="section services" id="solutions">
       <div class="container laned">
         <span class="cable-pt node l" data-scope=".services"><i class="led"></i></span>
         <span class="cable-pt l" style="top:260px"></span>
 
         <div class="section-head reveal">
-          <p class="port-tag"><b>Port 01</b> <span data-i18n="nav.solutions">Solutions</span></p>
-          <h2 data-i18n-html="services.title">Everything your IT<br>needs, <span class="grad">end&#8209;to&#8209;end.</span></h2>
-          <p data-i18n="services.lead">Infrastructure, security, compliance and support — six practices, one team and a single point of contact.</p>
+          <p class="port-tag"><b>Port 01</b> <span data-i18n="nav.solutions">Services</span></p>
+          <h2 data-i18n-html="services.title">Two areas of expertise,<br><span class="grad">one single team.</span></h2>
+          <p data-i18n="services.lead">Reliable IT and low-voltage infrastructure, and ISO support all the way to certification — with a single point of contact.</p>
         </div>
 
-        <div class="services-grid">
-          <article class="card reveal" style="--c:#00F0FF">
-            <div class="card-top"><span>01 / 06</span><i class="card-led"></i></div>
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5 6.8 16.8M12 11.5l5.2 5.3"/></svg></div>
-            <h3 data-i18n="s1.title">Network &amp; IT Infrastructure</h3>
-            <p data-i18n="s1.text">LAN, WAN and Wi‑Fi designed for speed and resilience, sized for where your business is going.</p>
-            <ul class="tags"><li>LAN / WAN</li><li>Wi‑Fi 7</li><li>SD‑WAN</li></ul>
-          </article>
+        <div class="pillars">
+          <!-- ===== PILLAR 01 — Infrastructure & courant faible ===== -->
+          <div class="pillar" id="infrastructure">
+            <span class="cable-pt node" data-scope=".pillar"><i class="led"></i></span>
+            <div class="pillar-aside">
+              <p class="pillar-num"><span data-i18n="pillar.label">Practice</span> 01</p>
+              <h3 class="pillar-title" data-i18n="pInfra.title">Infrastructure &amp; Low-Voltage Services</h3>
+              <p class="pillar-text" data-i18n="pInfra.text">Design, installation and maintenance of your networks and low-voltage systems — from offices to industrial sites.</p>
+              <p class="pillar-count"><b>08</b> <span data-i18n="pillar.count">services</span></p>
+              <a href="#contact" class="btn btn-ghost magnetic" data-service="infra-other"><span data-i18n="pillar.cta">Request a quote</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+            <div class="sub-grid">
+              <article class="card sub reveal" style="--c:#00F0FF">
+                <div class="card-top"><span>01</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5 6.8 16.8M12 11.5l5.2 5.3"/></svg></div>
+                <h4 data-i18n="infra.1.title">IT networks</h4>
+                <p data-i18n="infra.1.text">Professional LAN, WAN and Wi‑Fi — fast and secure.</p>
+              </article>
+              <article class="card sub striped reveal" style="--c:#3BA0FF; --d:.06s">
+                <div class="card-top"><span>02</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3h9v7.5a4.5 4.5 0 0 1-9 0V3z"/><path d="M10 3v3.5M12 3v3.5M14 3v3.5M12 15v6"/></svg></div>
+                <h4 data-i18n="infra.2.title">Structured cabling &amp; fiber</h4>
+                <p data-i18n="infra.2.text">CAT6A copper, fiber optics and patch racks — tested and documented.</p>
+              </article>
+              <article class="card sub reveal" style="--c:#1E6BFF">
+                <div class="card-top"><span>03</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 14.5 4l2 6L5 13.5z"/><path d="m16.5 8.5 4.5-1v4.5l-4 .8"/><path d="M8 12.6 9.3 17H4"/><circle cx="7.5" cy="8.8" r=".6"/></svg></div>
+                <h4 data-i18n="infra.3.title">Video surveillance (CCTV)</h4>
+                <p data-i18n="infra.3.text">IP cameras, recording and remote monitoring for all your sites.</p>
+              </article>
+              <article class="card sub striped reveal" style="--c:#00F0FF; --d:.06s">
+                <div class="card-top"><span>04</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="10" r="2.6"/><path d="M8.5 17c.8-1.6 2-2.3 3.5-2.3s2.7.7 3.5 2.3"/></svg></div>
+                <h4 data-i18n="infra.4.title">Access control &amp; time tracking</h4>
+                <p data-i18n="infra.4.text">Badges, biometrics and zone-based access management.</p>
+              </article>
+              <article class="card sub reveal" style="--c:#3BA0FF">
+                <div class="card-top"><span>05</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.8 3 5 5.3 5 10a5 5 0 0 1-10 0c0-2.6 1.4-4.2 2.5-5.2.3 1.6 1 2.6 2 3.2.6-2.6-.1-5.4.5-8z"/></svg></div>
+                <h4 data-i18n="infra.5.title">Fire detection &amp; alarm</h4>
+                <p data-i18n="infra.5.text">Detectors, control panels and alarms that meet the standards.</p>
+              </article>
+              <article class="card sub striped reveal" style="--c:#1E6BFF; --d:.06s">
+                <div class="card-top"><span>06</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17v-5.5a6 6 0 0 1 12 0V17"/><path d="M4 17h16M10 20.5h4M12 2.5V4M4.6 5.6l1.1 1.1M19.4 5.6l-1.1 1.1"/></svg></div>
+                <h4 data-i18n="infra.6.title">Intrusion alarm</h4>
+                <p data-i18n="infra.6.text">Alarms, sensors and real-time alerts.</p>
+              </article>
+              <article class="card sub reveal" style="--c:#00F0FF">
+                <div class="card-top"><span>07</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16.4v2.8a1.9 1.9 0 0 1-2.1 1.9 18.7 18.7 0 0 1-8.1-2.9 18.4 18.4 0 0 1-5.7-5.7A18.7 18.7 0 0 1 2.2 4.4 1.9 1.9 0 0 1 4.1 2.3h2.8a1.9 1.9 0 0 1 1.9 1.6c.1.9.3 1.7.6 2.5a1.9 1.9 0 0 1-.4 2L7.8 9.6a15 15 0 0 0 5.7 5.7l1.2-1.2a1.9 1.9 0 0 1 2-.4c.8.3 1.6.5 2.5.6a1.9 1.9 0 0 1 1.8 2.1z"/></svg></div>
+                <h4 data-i18n="infra.7.title">IP telephony &amp; intercom</h4>
+                <p data-i18n="infra.7.text">IP PBX, handsets and intercoms for seamless communication.</p>
+              </article>
+              <article class="card sub striped reveal" style="--c:#3BA0FF; --d:.06s">
+                <div class="card-top"><span>08</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01M12 7h5M12 17h5"/></svg></div>
+                <h4 data-i18n="infra.8.title">Server rooms &amp; power</h4>
+                <p data-i18n="infra.8.text">Racks, UPS and cooling for uninterrupted service.</p>
+              </article>
+            </div>
+          </div>
 
-          <article class="card striped reveal" style="--c:#3BA0FF; --d:.08s">
-            <div class="card-top"><span>02 / 06</span><i class="card-led"></i></div>
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3h9v7.5a4.5 4.5 0 0 1-9 0V3z"/><path d="M10 3v3.5M12 3v3.5M14 3v3.5M12 15v6"/></svg></div>
-            <h3 data-i18n="s2.title">Structured Cabling &amp; Fiber</h3>
-            <p data-i18n="s2.text">Copper and fiber cabling, racks and patch panels — certified, labeled and documented.</p>
-            <ul class="tags"><li>CAT6A</li><li>OM4</li><li data-i18n="s2.tag">Racks</li></ul>
-          </article>
-
-          <article class="card reveal" style="--c:#1E6BFF; --d:.16s">
-            <div class="card-top"><span>03 / 06</span><i class="card-led"></i></div>
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6L12 3z"/><path d="m9 12 2 2 4-4"/></svg></div>
-            <h3 data-i18n="s3.title">Cybersecurity</h3>
-            <p data-i18n="s3.text">Firewalls, endpoint protection, audits and monitoring to keep threats outside your network.</p>
-            <ul class="tags"><li data-i18n="s3.tag">Firewall</li><li>EDR</li><li>Audit</li></ul>
-          </article>
-
-          <article class="card reveal" style="--c:#00F0FF">
-            <div class="card-top"><span>04 / 06</span><i class="card-led"></i></div>
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="m9.5 14 2 2 3.5-4"/></svg></div>
-            <h3 data-i18n="s4.title">ISO Certification &amp; Consulting</h3>
-            <p data-i18n="s4.text">Gap analysis, implementation and audit readiness for ISO 27001, ISO 9001 and more.</p>
-            <ul class="tags"><li>ISO 27001</li><li>ISO 9001</li><li>GRC</li></ul>
-          </article>
-
-          <article class="card striped reveal" style="--c:#1E6BFF; --d:.08s">
-            <div class="card-top"><span>05 / 06</span><i class="card-led"></i></div>
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01M12 7h5M12 17h5"/></svg></div>
-            <h3 data-i18n="s5.title">Datacenter &amp; Cloud</h3>
-            <p data-i18n="s5.text">Servers, storage, virtualization and hybrid cloud built to run without interruption.</p>
-            <ul class="tags"><li data-i18n="s5.tag1">Servers</li><li>VMware</li><li data-i18n="s5.tag2">Hybrid cloud</li></ul>
-          </article>
-
-          <article class="card reveal" style="--c:#E6E6E6; --d:.16s">
-            <div class="card-top"><span>06 / 06</span><i class="card-led"></i></div>
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3.5 3.5 0 0 1-3.5 2H13"/></svg></div>
-            <h3 data-i18n="s6.title">Integrated Solutions &amp; Support</h3>
-            <p data-i18n="s6.text">One partner from design to operations: helpdesk, maintenance and proactive 24/7 monitoring.</p>
-            <ul class="tags"><li>Helpdesk</li><li>SLA</li><li>24/7</li></ul>
-          </article>
+          <!-- ===== PILLAR 02 — Consulting & certification ISO ===== -->
+          <div class="pillar" id="iso">
+            <span class="cable-pt node" data-scope=".pillar"><i class="led"></i></span>
+            <div class="pillar-aside">
+              <p class="pillar-num"><span data-i18n="pillar.label">Practice</span> 02</p>
+              <h3 class="pillar-title" data-i18n="pIso.title">ISO Consulting &amp; Certification</h3>
+              <p class="pillar-text" data-i18n="pIso.text">From the initial assessment to the certification audit, we build management systems that fit the way you work.</p>
+              <p class="pillar-count"><b>06</b> <span data-i18n="pillar.count">services</span></p>
+              <a href="#contact" class="btn btn-ghost magnetic" data-service="iso-other"><span data-i18n="pillar.cta">Request a quote</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+            <div class="sub-grid">
+              <article class="card sub reveal" style="--c:#00F0FF">
+                <div class="card-top"><span>ISO 9001</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m9 14.2-1.5 6.8L12 19l4.5 2-1.5-6.8"/><path d="m9.6 9 1.6 1.6L14.5 7.4"/></svg></div>
+                <h4 data-i18n="iso.1.title">Quality management</h4>
+                <p data-i18n="iso.1.text">Structure your processes and raise customer satisfaction.</p>
+              </article>
+              <article class="card sub striped reveal" style="--c:#1E6BFF; --d:.06s">
+                <div class="card-top"><span>ISO/IEC 27001</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></div>
+                <h4 data-i18n="iso.2.title">Information security</h4>
+                <p data-i18n="iso.2.text">Protect your data and control your digital risks.</p>
+              </article>
+              <article class="card sub reveal" style="--c:#3BA0FF">
+                <div class="card-top"><span>ISO 14001</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19.5C5 10.5 11 5 20 4.5c0 9-5.5 15-14.5 15"/><path d="m5 19.5 8-8"/></svg></div>
+                <h4 data-i18n="iso.3.title">Environmental management</h4>
+                <p data-i18n="iso.3.text">Reduce your impact and meet regulatory requirements.</p>
+              </article>
+              <article class="card sub striped reveal" style="--c:#00F0FF; --d:.06s">
+                <div class="card-top"><span>ISO 45001</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5h18M5 17.5V15a7 7 0 0 1 14 0v2.5"/><path d="M10 8.3V6h4v2.3M12 8v4"/></svg></div>
+                <h4 data-i18n="iso.4.title">Occupational health &amp; safety</h4>
+                <p data-i18n="iso.4.text">Prevent risks and protect your teams.</p>
+              </article>
+              <article class="card sub reveal" style="--c:#1E6BFF">
+                <div class="card-top"><span>05</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.3-4.3M8.5 12.8v-1.8M11 12.8V9M13.5 12.8V10"/></svg></div>
+                <h4 data-i18n="iso.5.title">Assessment &amp; gap analysis</h4>
+                <p data-i18n="iso.5.text">A clear baseline and an action plan toward certification.</p>
+              </article>
+              <article class="card sub striped reveal" style="--c:#3BA0FF; --d:.06s">
+                <div class="card-top"><span>06</span><i class="card-led"></i></div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4M9 12l2 2 4-4M9 17.5h6"/></svg></div>
+                <h4 data-i18n="iso.6.title">Internal audits &amp; training</h4>
+                <p data-i18n="iso.6.text">Mock audits, team training and final-audit preparation.</p>
+              </article>
+            </div>
+          </div>
         </div>
         <span class="cable-pt l" style="bottom:-20px"></span>
       </div>
@@ -360,8 +428,8 @@
             </div>
             <div class="project-body">
               <div>
-                <span class="project-tag">Datacenter · 2026</span>
-                <h3 data-i18n="pr1.title">Datacenter migration</h3>
+                <span class="project-tag" data-i18n="pr1.tag">Infrastructure · 2026</span>
+                <h3 data-i18n="pr1.title">Head-office cabling &amp; server room</h3>
               </div>
               <span class="project-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
             </div>
@@ -378,8 +446,8 @@
             </div>
             <div class="project-body">
               <div>
-                <span class="project-tag" data-i18n="pr2.tag">Network · 2025</span>
-                <h3 data-i18n="pr2.title">Multi‑site network</h3>
+                <span class="project-tag" data-i18n="pr2.tag">Low-voltage · 2025</span>
+                <h3 data-i18n="pr2.title">Multi-site CCTV &amp; access control</h3>
               </div>
               <span class="project-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
             </div>
@@ -399,8 +467,8 @@
             </div>
             <div class="project-body">
               <div>
-                <span class="project-tag">ISO 27001 · 2025</span>
-                <h3 data-i18n="pr3.title">Security &amp; compliance program</h3>
+                <span class="project-tag">ISO 9001 · 2025</span>
+                <h3 data-i18n="pr3.title">ISO 9001 certification support</h3>
               </div>
               <span class="project-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
             </div>
@@ -427,9 +495,10 @@
             <h2 data-i18n-html="contact.title">Ready to<br><span class="grad">plug in?</span></h2>
             <p data-i18n="contact.lead">Tell us about your project and an engineer will get back to you within one business day.</p>
             <ul class="contact-list">
-              <li><span data-i18n="contact.email">Email</span><a href="mailto:hello@hyperlink.example">hello@hyperlink.example</a></li>
-              <li><span data-i18n="contact.phone">Phone</span><a href="tel:+000000000">+00 (0) 000 000 000</a></li>
-              <li><span data-i18n="contact.office">Office</span><em class="plain" data-i18n="contact.address">Address to be confirmed</em></li>
+              <li><span data-i18n="contact.phone">Phone</span><a data-contact="phone" href="tel:+213000000000">+213 (0) 00 00 00 00</a></li>
+              <li><span data-i18n="contact.email">Email</span><a data-contact="email" href="mailto:contact@hyperlink.example">contact@hyperlink.example</a></li>
+              <li><span data-i18n="contact.office">Address</span><em class="plain" data-i18n="contact.address">To be confirmed — Algeria</em></li>
+              <li><span data-i18n="contact.hoursLabel">Hours</span><em class="plain" data-i18n="contact.hours">Sun – Thu · 8:30 am – 5:00 pm</em></li>
             </ul>
             <span class="cable-pt m-only cp-contact"></span>
           </div>
@@ -467,25 +536,45 @@
           </div>
 
           <form class="form reveal" id="contact-form" novalidate>
-            <div class="field"><label for="f-name" data-i18n="form.name">Name</label><input id="f-name" name="name" type="text" data-i18n-ph="form.namePh" placeholder="Jane Doe" autocomplete="name"></div>
-            <div class="field"><label for="f-email" data-i18n="contact.email">Email</label><input id="f-email" name="email" type="email" data-i18n-ph="form.emailPh" placeholder="jane@company.com" autocomplete="email"></div>
+            <div class="field"><label for="f-name"><span data-i18n="form.name">Full name</span> <b class="req">*</b></label><input id="f-name" name="name" type="text" data-i18n-ph="form.namePh" placeholder="First and last name" autocomplete="name" required><small class="field-err" aria-live="polite"></small></div>
             <div class="field"><label for="f-company" data-i18n="form.company">Company</label><input id="f-company" name="company" type="text" data-i18n-ph="form.companyPh" placeholder="Company name" autocomplete="organization"></div>
-            <div class="field"><label for="f-need" data-i18n="form.need">Need</label>
-              <select id="f-need" name="need">
-                <option value="network" data-i18n="s1.title">Network &amp; IT Infrastructure</option>
-                <option value="cabling" data-i18n="s2.title">Structured Cabling &amp; Fiber</option>
-                <option value="security" data-i18n="s3.title">Cybersecurity</option>
-                <option value="iso" data-i18n="s4.title">ISO Certification &amp; Consulting</option>
-                <option value="datacenter" data-i18n="s5.title">Datacenter &amp; Cloud</option>
-                <option value="support" data-i18n="s6.title">Integrated Solutions &amp; Support</option>
+            <div class="field"><label for="f-phone"><span data-i18n="contact.phone">Phone</span> <b class="req">*</b></label><input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="05 55 12 34 56" autocomplete="tel" required><small class="field-err" aria-live="polite"></small></div>
+            <div class="field"><label for="f-email" data-i18n="contact.email">Email</label><input id="f-email" name="email" type="email" data-i18n-ph="form.emailPh" placeholder="you@company.dz" autocomplete="email"><small class="field-err" aria-live="polite"></small></div>
+            <div class="field"><label for="f-wilaya" data-i18n="form.wilaya">Wilaya</label>
+              <select id="f-wilaya" name="wilaya" data-wilayas>
+                <option value="" data-i18n="form.wilayaPh">Select your wilaya…</option>
               </select>
             </div>
-            <div class="field full"><label for="f-msg" data-i18n="form.project">Project</label><textarea id="f-msg" name="message" rows="4" data-i18n-ph="form.projectPh" placeholder="Tell us a bit about your project…"></textarea></div>
+            <div class="field"><label for="f-need" data-i18n="form.need">Service needed</label>
+              <select id="f-need" name="service">
+                <optgroup data-i18n-label="pInfra.title" label="Infrastructure &amp; Low-Voltage Services">
+                  <option value="infra-networks" data-i18n="infra.1.title">IT networks</option>
+                  <option value="infra-cabling" data-i18n="infra.2.title">Structured cabling &amp; fiber</option>
+                  <option value="infra-cctv" data-i18n="infra.3.title">Video surveillance (CCTV)</option>
+                  <option value="infra-access" data-i18n="infra.4.title">Access control &amp; time tracking</option>
+                  <option value="infra-fire" data-i18n="infra.5.title">Fire detection &amp; alarm</option>
+                  <option value="infra-intrusion" data-i18n="infra.6.title">Intrusion alarm</option>
+                  <option value="infra-voip" data-i18n="infra.7.title">IP telephony &amp; intercom</option>
+                  <option value="infra-serverroom" data-i18n="infra.8.title">Server rooms &amp; power</option>
+                  <option value="infra-other" data-i18n="form.otherInfra">Several needs / other (infrastructure)</option>
+                </optgroup>
+                <optgroup data-i18n-label="pIso.title" label="ISO Consulting &amp; Certification">
+                  <option value="iso-9001" data-i18n="form.iso9001">ISO 9001 — Quality</option>
+                  <option value="iso-27001" data-i18n="form.iso27001">ISO/IEC 27001 — Information security</option>
+                  <option value="iso-14001" data-i18n="form.iso14001">ISO 14001 — Environment</option>
+                  <option value="iso-45001" data-i18n="form.iso45001">ISO 45001 — Health &amp; safety</option>
+                  <option value="iso-gap" data-i18n="iso.5.title">Assessment &amp; gap analysis</option>
+                  <option value="iso-audit" data-i18n="iso.6.title">Internal audits &amp; training</option>
+                  <option value="iso-other" data-i18n="form.otherIso">Several needs / other (ISO)</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="field full"><label for="f-msg" data-i18n="form.project">Your project</label><textarea id="f-msg" name="message" rows="4" data-i18n-ph="form.projectPh" placeholder="Site, scope, timeline…"></textarea></div>
             <div class="form-foot full">
-              <button type="submit" class="btn btn-primary magnetic"><span data-i18n="form.send">Send signal</span>
+              <button type="submit" class="btn btn-primary magnetic"><span data-i18n="form.send">Send request</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
-              <span class="form-note" id="form-note" data-i18n="form.note">Demo form — not connected yet.</span>
+              <span class="form-note" id="form-note" data-i18n="form.note">* Required fields — demo form, not connected yet.</span>
             </div>
           </form>
         </div>
@@ -505,7 +594,7 @@
           <p data-i18n="footer.tagline">IT infrastructure, ISO consulting and integrated solutions — built to keep your business connected.</p>
         </div>
         <div class="footer-cols">
-          <div><h4 data-i18n="nav.solutions">Solutions</h4><a href="#solutions" data-i18n="footer.networks">Networks</a><a href="#solutions" data-i18n="footer.cabling">Cabling</a><a href="#solutions" data-i18n="footer.security">Security</a><a href="#solutions" data-i18n="band.4">ISO consulting</a></div>
+          <div><h4 data-i18n="nav.solutions">Services</h4><a href="#infrastructure" data-i18n="footer.infra">Infrastructure</a><a href="#infrastructure" data-i18n="footer.lowvoltage">Low-voltage systems</a><a href="#iso" data-i18n="footer.iso">ISO consulting</a><a href="#iso" data-i18n="footer.certification">Certification</a></div>
           <div><h4 data-i18n="footer.company">Company</h4><a href="#process" data-i18n="nav.process">Process</a><a href="#projects" data-i18n="nav.projects">Projects</a><a href="#contact" data-i18n="footer.careers">Careers</a><a href="#contact" data-i18n="nav.contact">Contact</a></div>
           <div><h4 data-i18n="footer.social">Social</h4><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">X / Twitter</a></div>
         </div>
@@ -524,7 +613,7 @@
 
   <!-- mobile action bar -->
   <div class="m-cta" id="m-cta">
-    <a href="tel:+000000000" class="m-cta-call" data-i18n-aria="cta.call" aria-label="Call us">
+    <a href="tel:+213000000000" data-contact="phone-link" class="m-cta-call" data-i18n-aria="cta.call" aria-label="Call us">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
     </a>
     <a href="#contact" class="btn btn-primary m-cta-main"><span data-i18n="cta.quote">Get a quote</span>
@@ -533,6 +622,7 @@
     <span class="m-cta-len" aria-hidden="true"><b data-hud-len>0.00 m</b><span data-i18n="hud.cable">Cable</span></span>
   </div>
 
+  <script src="js/site-config.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/cable.js"></script>
   <script src="js/main.js"></script>

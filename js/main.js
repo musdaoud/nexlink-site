@@ -141,17 +141,60 @@
     }
   });
 
-  /* demo form */
+  /* contact form (demo: validates, but isn't connected to a mailbox yet) */
   const form = document.getElementById('contact-form');
   const note = document.getElementById('form-note');
   let formSent = false;
+
+  // Algerian numbers: mobile 05/06/07 + 8 digits, landline 02x/03x/04x + 7 digits; +213 / 00213 / 0 prefixes
+  const isAlgerianPhone = v => /^(?:\+213|00213|0)(?:[567]\d{8}|[234]\d{7})$/.test(v.replace(/\(0\)/g, '').replace(/[\s.\-()]/g, ''));
+  const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+
+  const rules = {
+    name: el => el.value.trim().length >= 2 || 'form.errName',
+    // clients who pick "Outside Algeria" may use any international number
+    phone: el => (form.elements.wilaya.value === 'abroad'
+      ? /^\+?\d{8,15}$/.test(el.value.replace(/[\s.\-()]/g, ''))
+      : isAlgerianPhone(el.value)) || 'form.errPhone',
+    email: el => !el.value.trim() || isEmail(el.value.trim()) || 'form.errEmail',
+  };
+  const check = (name, show = true) => {
+    const el = form.elements[name];
+    const res = rules[name](el);
+    const field = el.closest('.field');
+    const bad = res !== true;
+    if (show) {
+      field.classList.toggle('has-error', bad);
+      el.setAttribute('aria-invalid', String(bad));
+      field.querySelector('.field-err').textContent = bad ? t(res) : '';
+      field.dataset.err = bad ? res : '';
+    }
+    return !bad;
+  };
+  Object.keys(rules).forEach(name => {
+    const el = form.elements[name];
+    el.addEventListener('blur', () => { if (el.value) check(name); });
+    el.addEventListener('input', () => { if (el.closest('.field').classList.contains('has-error')) check(name); });
+  });
+
   form.addEventListener('submit', e => {
     e.preventDefault();
+    const results = Object.keys(rules).map(name => check(name));
+    if (results.includes(false)) {
+      form.querySelector('.has-error input')?.focus();
+      return;
+    }
     formSent = true;
     note.textContent = t('form.sent');
     note.classList.add('ok');
     form.reset();
   });
+
+  // "Request a quote" on a pillar pre-selects that pillar in the form
+  document.querySelectorAll('[data-service]').forEach(btn => btn.addEventListener('click', () => {
+    const select = form.elements.service;
+    if (select) select.value = btn.dataset.service;
+  }));
 
   /* HUD steps aside for the footer */
   const hud = document.querySelector('.hud');
@@ -174,7 +217,7 @@
       blocked = blockers.size > 0;
       update();
     }, { rootMargin: '0px 0px -30% 0px' });
-    ['.contact-grid .form', '.footer'].forEach(sel => { const el = document.querySelector(sel); el && io.observe(el); });
+    ['#contact', '.footer'].forEach(sel => { const el = document.querySelector(sel); el && io.observe(el); });
     window.addEventListener('scroll', update, { passive: true });
     burger.addEventListener('click', update);
     update();
@@ -184,6 +227,7 @@
   window.addEventListener('i18n:change', () => {
     renderLinkTexts();
     if (formSent) note.textContent = t('form.sent');
+    form.querySelectorAll('.field[data-err]').forEach(f => { if (f.dataset.err) f.querySelector('.field-err').textContent = t(f.dataset.err); });
     const burgerOpen = body.classList.contains('menu-open');
     burger.setAttribute('aria-expanded', String(burgerOpen));
   });
