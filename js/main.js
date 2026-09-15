@@ -121,7 +121,7 @@
       leds.forEach((led, i) => {
         ledTimers.push(setTimeout(() => {
           led.classList.add('on');
-          if (Math.random() < .18) led.classList.add('amber');
+          if (Math.random() < .1) led.classList.add('red');
         }, 40 + i * 35));
       });
       metricTimer = setInterval(() => {
@@ -129,10 +129,13 @@
         metrics.thr.textContent = (9.2 + Math.random() * .7).toFixed(1) + ' Gbps';
         packets += Math.floor(9000 + Math.random() * 6000);
         metrics.pkt.textContent = packets.toLocaleString(document.documentElement.lang === 'fr' ? 'fr-FR' : 'en-US');
-        leds.forEach(l => { if (Math.random() < .12) l.classList.toggle('amber'); });
+        leds.forEach(l => {
+          l.classList.toggle('idle', Math.random() < .35);          // traffic flicker
+          if (Math.random() < .03) l.classList.toggle('red');       // the odd error light
+        });
       }, 450);
     } else {
-      leds.forEach(l => l.classList.remove('on', 'amber'));
+      leds.forEach(l => l.classList.remove('on', 'red', 'idle'));
       metrics.lat.textContent = '— ms';
       metrics.thr.textContent = '— Gbps';
     }

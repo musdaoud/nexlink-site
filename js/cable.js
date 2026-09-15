@@ -16,7 +16,7 @@
 
   /* ---------- wire spec ---------- */
   // 'brand' = HyperLink blues; 't568b' = real-world RJ45 wire colours
-  const PALETTE = 'brand';
+  const PALETTE = 't568b';
   const COLORS = {
     brand: { white: '#E6E6E6', a: '#00F0FF', b: '#1E6BFF', c: '#3BA0FF', d: '#8FA6C4', packets: ['#00F0FF', '#FFFFFF', '#3BA0FF', '#00F0FF'] },
     t568b: { white: '#ece6da', a: '#ff8a1f', b: '#22c55e', c: '#2f7bff', d: '#b8743f', packets: ['#ff8a1f', '#22c55e', '#2f7bff', '#ffffff'] },
