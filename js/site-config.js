@@ -8,6 +8,11 @@ window.HL_SITE = {
   phoneDisplay: '+213 (0) 00 00 00 00',   // how the number is shown, e.g. '+213 (0) 21 00 00 00'
   phoneLink: '+213000000000',             // digits only for tap-to-call, e.g. '+21321000000'
   email: 'contact@hyperlink.example',
+
+  // Contact form backend — leave empty to keep the demo mode.
+  // The form POSTs JSON { name, company, phone, email, wilaya, service, message, consent, lang, page }.
+  formEndpoint: '',                        // e.g. '/api/contact' (Cloudflare Pages Function) or a form-service URL
+  turnstileSiteKey: '',                    // Cloudflare Turnstile public key (anti-spam), optional
 };
 
 (() => {

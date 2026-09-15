@@ -144,7 +144,6 @@
   /* contact form (demo: validates, but isn't connected to a mailbox yet) */
   const form = document.getElementById('contact-form');
   const note = document.getElementById('form-note');
-  let formSent = false;
 
   // Algerian numbers: mobile 05/06/07 + 8 digits, landline 02x/03x/04x + 7 digits; +213 / 00213 / 0 prefixes
   const isAlgerianPhone = v => /^(?:\+213|00213|0)(?:[567]\d{8}|[234]\d{7})$/.test(v.replace(/\(0\)/g, '').replace(/[\s.\-()]/g, ''));
@@ -157,6 +156,7 @@
       ? /^\+?\d{8,15}$/.test(el.value.replace(/[\s.\-()]/g, ''))
       : isAlgerianPhone(el.value)) || 'form.errPhone',
     email: el => !el.value.trim() || isEmail(el.value.trim()) || 'form.errEmail',
+    consent: el => el.checked || 'form.errConsent',
   };
   const check = (name, show = true) => {
     const el = form.elements[name];
@@ -173,21 +173,92 @@
   };
   Object.keys(rules).forEach(name => {
     const el = form.elements[name];
-    el.addEventListener('blur', () => { if (el.value) check(name); });
+    el.addEventListener('blur', () => { if (el.type !== 'checkbox' && el.value) check(name); });
     el.addEventListener('input', () => { if (el.closest('.field').classList.contains('has-error')) check(name); });
   });
 
-  form.addEventListener('submit', e => {
+  const site = window.HL_SITE || {};
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitLabel = submitBtn.querySelector('[data-i18n]');
+  let noteKey = null;
+  const setNote = (key, state) => {
+    noteKey = key;
+    note.classList.toggle('ok', state === 'ok');
+    note.classList.toggle('err', state === 'err');
+    renderNote();
+  };
+  const renderNote = () => {
+    if (!noteKey) return;
+    note.textContent = t(noteKey);
+    if (noteKey === 'form.errServer') {
+      note.append(' ');
+      const a = document.createElement('a'); a.href = `tel:${site.phoneLink}`; a.textContent = site.phoneDisplay;
+      const b = document.createElement('a'); b.href = `mailto:${site.email}`; b.textContent = site.email;
+      note.append(a, ' · ', b);
+    }
+  };
+
+  // optional Cloudflare Turnstile (anti-spam) — only loads when a site key is configured
+  if (site.turnstileSiteKey) {
+    const box = document.getElementById('hl-turnstile');
+    box.className += ' cf-turnstile';
+    box.dataset.sitekey = site.turnstileSiteKey;
+    box.dataset.theme = 'dark';
+    const sc = document.createElement('script');
+    sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    sc.async = true; sc.defer = true;
+    document.head.appendChild(sc);
+  }
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const results = Object.keys(rules).map(name => check(name));
     if (results.includes(false)) {
       form.querySelector('.has-error input')?.focus();
       return;
     }
-    formSent = true;
-    note.textContent = t('form.sent');
-    note.classList.add('ok');
-    form.reset();
+    const data = Object.fromEntries(new FormData(form));
+    if (data.website) return;                       // honeypot filled → silently drop (bot)
+
+    if (!site.formEndpoint) {                       // demo mode: nothing is sent
+      setNote('form.sent', 'ok');
+      form.reset();
+      return;
+    }
+
+    const payload = {
+      ...data,
+      consent: true,
+      lang: document.documentElement.lang,
+      page: location.href,
+      wilayaName: form.elements.wilaya.selectedOptions[0]?.textContent || '',
+      serviceName: form.elements.service.selectedOptions[0]?.textContent || '',
+    };
+    delete payload.website;
+
+    form.classList.add('is-sending');
+    submitLabel.textContent = t('form.sending');
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
+    try {
+      const res = await fetch(site.formEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+        signal: ctrl.signal,
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setNote('form.sentReal', 'ok');
+      form.reset();
+      if (site.turnstileSiteKey && typeof window.turnstile?.reset === 'function') window.turnstile.reset();
+    } catch (err) {
+      console.warn('[contact form]', err);
+      setNote('form.errServer', 'err');
+    } finally {
+      clearTimeout(timer);
+      form.classList.remove('is-sending');
+      submitLabel.textContent = t('form.send');
+    }
   });
 
   // "Request a quote" on a pillar pre-selects that pillar in the form
@@ -226,7 +297,7 @@
   /* language switch: i18n.js rewrote the static text — refresh the dynamic bits */
   window.addEventListener('i18n:change', () => {
     renderLinkTexts();
-    if (formSent) note.textContent = t('form.sent');
+    renderNote();
     form.querySelectorAll('.field[data-err]').forEach(f => { if (f.dataset.err) f.querySelector('.field-err').textContent = t(f.dataset.err); });
     const burgerOpen = body.classList.contains('menu-open');
     burger.setAttribute('aria-expanded', String(burgerOpen));

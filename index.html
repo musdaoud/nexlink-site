@@ -204,17 +204,50 @@
 
         <div class="pillars">
           <!-- ===== PILLAR 01 — Infrastructure & courant faible ===== -->
-          <div class="pillar" id="infrastructure">
+          <div class="pillar pillar--infra" id="infrastructure">
             <span class="cable-pt node" data-scope=".pillar"><i class="led"></i></span>
-            <div class="pillar-aside">
-              <p class="pillar-num"><span data-i18n="pillar.label">Practice</span> 01</p>
-              <h3 class="pillar-title" data-i18n="pInfra.title">Infrastructure &amp; Low-Voltage Services</h3>
-              <p class="pillar-text" data-i18n="pInfra.text">Design, installation and maintenance of your networks and low-voltage systems — from offices to industrial sites.</p>
-              <p class="pillar-count"><b>08</b> <span data-i18n="pillar.count">services</span></p>
-              <a href="#contact" class="btn btn-ghost magnetic" data-service="infra-other"><span data-i18n="pillar.cta">Request a quote</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
+            <header class="pillar-head">
+              <div class="pillar-intro">
+                <p class="pillar-num"><span data-i18n="pillar.label">Practice</span> 01</p>
+                <h3 class="pillar-title" data-i18n="pInfra.title">Infrastructure &amp; Low-Voltage Services</h3>
+                <p class="pillar-text" data-i18n="pInfra.text">Design, installation and maintenance of your networks and low-voltage systems — from offices to industrial sites.</p>
+                <ul class="pillar-points">
+                  <li data-i18n="pInfra.pt1">Site survey &amp; design</li>
+                  <li data-i18n="pInfra.pt2">Installation &amp; commissioning</li>
+                  <li data-i18n="pInfra.pt3">Maintenance &amp; support</li>
+                </ul>
+                <div class="pillar-actions">
+                  <a href="#contact" class="btn btn-primary magnetic" data-service="infra-other"><span data-i18n="pillar.cta">Request a quote</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+                  <p class="pillar-count"><b>08</b> <span data-i18n="pillar.count">services</span></p>
+                </div>
+              </div>
+              <div class="pillar-visual" aria-hidden="true">
+                <svg class="pv pv-infra" viewBox="0 0 420 300">
+                  <g class="links">
+                    <path d="M170 126V60H96"/><path d="M210 126V66"/><path d="M250 126V60h74"/>
+                    <path d="M170 174v66H96"/><path d="M210 174v60"/><path d="M250 174v66h74"/>
+                  </g>
+                  <g class="pulses">
+                    <path d="M170 126V60H96"/><path d="M210 126V66" style="--i:1"/><path d="M250 126V60h74" style="--i:2"/>
+                    <path d="M170 174v66H96" style="--i:3"/><path d="M210 174v60" style="--i:4"/><path d="M250 174v66h74" style="--i:5"/>
+                  </g>
+                  <rect class="core" x="140" y="126" width="140" height="48" rx="9"/>
+                  <g class="core-ports"><rect x="156" y="142" width="12" height="9" rx="1.5"/><rect x="174" y="142" width="12" height="9" rx="1.5"/><rect x="192" y="142" width="12" height="9" rx="1.5"/><rect x="210" y="142" width="12" height="9" rx="1.5"/><rect x="228" y="142" width="12" height="9" rx="1.5"/><rect x="246" y="142" width="12" height="9" rx="1.5"/></g>
+                  <g class="core-leds"><circle cx="162" cy="160" r="1.8"/><circle cx="180" cy="160" r="1.8" style="--i:2"/><circle cx="198" cy="160" r="1.8" style="--i:4"/><circle cx="216" cy="160" r="1.8" style="--i:1"/><circle cx="234" cy="160" r="1.8" style="--i:3"/><circle cx="252" cy="160" r="1.8" style="--i:5"/></g>
+                  <g class="nodes">
+                    <g transform="translate(72 60)"><circle r="24"/><path transform="translate(-12 -12)" d="M3 7.5 14.5 4l2 6L5 13.5zM16.5 8.5l4.5-1v4.5l-4 .8M8 12.6 9.3 17H4"/></g>
+                    <g transform="translate(210 42)"><circle r="24"/><path transform="translate(-12 -12)" d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.8 16a5 5 0 0 1 6.4 0M12 19.5h.01"/></g>
+                    <g transform="translate(348 60)"><circle r="24"/><path transform="translate(-12 -12)" d="M5 4h14v6H5zM5 14h14v6H5zM8 7h.01M8 17h.01"/></g>
+                    <g transform="translate(72 240)"><circle r="24"/><path transform="translate(-12 -12)" d="M6 3h12v18H6zM12 7.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M9 17c.7-1.4 1.7-2 3-2s2.3.6 3 2"/></g>
+                    <g transform="translate(210 258)"><circle r="24"/><path transform="translate(-12 -12)" d="M12 3c.8 3 5 5.3 5 10a5 5 0 0 1-10 0c0-2.6 1.4-4.2 2.5-5.2.3 1.6 1 2.6 2 3.2.6-2.6-.1-5.4.5-8z"/></g>
+                    <g transform="translate(348 240)"><circle r="24"/><path transform="translate(-12 -12)" d="M21 16.4v2.8a1.9 1.9 0 0 1-2.1 1.9 18.7 18.7 0 0 1-8.1-2.9 18.4 18.4 0 0 1-5.7-5.7A18.7 18.7 0 0 1 2.2 4.4 1.9 1.9 0 0 1 4.1 2.3h2.8a1.9 1.9 0 0 1 1.9 1.6c.1.9.3 1.7.6 2.5a1.9 1.9 0 0 1-.4 2L7.8 9.6a15 15 0 0 0 5.7 5.7l1.2-1.2a1.9 1.9 0 0 1 2-.4c.8.3 1.6.5 2.5.6a1.9 1.9 0 0 1 1.8 2.1z"/></g>
+                  </g>
+                </svg>
+              </div>
+              <span class="pillar-bignum" aria-hidden="true">01</span>
+            </header>
             <div class="sub-grid">
               <article class="card sub reveal" style="--c:#00F0FF">
                 <div class="card-top"><span>01</span><i class="card-led"></i></div>
@@ -268,17 +301,42 @@
           </div>
 
           <!-- ===== PILLAR 02 — Consulting & certification ISO ===== -->
-          <div class="pillar" id="iso">
+          <div class="pillar pillar--iso" id="iso">
             <span class="cable-pt node" data-scope=".pillar"><i class="led"></i></span>
-            <div class="pillar-aside">
-              <p class="pillar-num"><span data-i18n="pillar.label">Practice</span> 02</p>
-              <h3 class="pillar-title" data-i18n="pIso.title">ISO Consulting &amp; Certification</h3>
-              <p class="pillar-text" data-i18n="pIso.text">From the initial assessment to the certification audit, we build management systems that fit the way you work.</p>
-              <p class="pillar-count"><b>06</b> <span data-i18n="pillar.count">services</span></p>
-              <a href="#contact" class="btn btn-ghost magnetic" data-service="iso-other"><span data-i18n="pillar.cta">Request a quote</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
+            <header class="pillar-head">
+              <div class="pillar-intro">
+                <p class="pillar-num"><span data-i18n="pillar.label">Practice</span> 02</p>
+                <h3 class="pillar-title" data-i18n="pIso.title">ISO Consulting &amp; Certification</h3>
+                <p class="pillar-text" data-i18n="pIso.text">From the initial assessment to the certification audit, we build management systems that fit the way you work.</p>
+                <ul class="pillar-points">
+                  <li data-i18n="pIso.pt1">Assessment</li>
+                  <li data-i18n="pIso.pt2">Implementation</li>
+                  <li data-i18n="pIso.pt3">Audit &amp; certification</li>
+                </ul>
+                <div class="pillar-actions">
+                  <a href="#contact" class="btn btn-primary magnetic" data-service="iso-other"><span data-i18n="pillar.cta">Request a quote</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+                  <p class="pillar-count"><b>06</b> <span data-i18n="pillar.count">services</span></p>
+                </div>
+              </div>
+              <div class="pillar-visual" aria-hidden="true">
+                <svg class="pv pv-iso" viewBox="0 0 320 300">
+                  <defs>
+                    <path id="seal-path" d="M160 150m-112 0a112 112 0 1 1 224 0a112 112 0 1 1-224 0"/>
+                    <linearGradient id="seal-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E6BFF"/><stop offset="1" stop-color="#0A192F"/></linearGradient>
+                  </defs>
+                  <g class="doc doc-back"><rect x="58" y="44" width="150" height="196" rx="10"/></g>
+                  <g class="doc doc-front"><rect x="112" y="64" width="150" height="196" rx="10"/><path d="M132 96h96M132 112h110M132 128h78M132 214h60"/></g>
+                  <circle class="ring-dash" cx="160" cy="150" r="128"/>
+                  <g class="seal-rot"><text textLength="700" lengthAdjust="spacing"><textPath href="#seal-path">ISO 9001 • ISO/IEC 27001 • ISO 14001 • ISO 45001 •</textPath></text></g>
+                  <circle class="ring" cx="160" cy="150" r="96"/>
+                  <circle class="seal" cx="160" cy="150" r="62"/>
+                  <path class="seal-check" d="m136 150 16 16 32-34"/>
+                </svg>
+              </div>
+              <span class="pillar-bignum" aria-hidden="true">02</span>
+            </header>
             <div class="sub-grid">
               <article class="card sub reveal" style="--c:#00F0FF">
                 <div class="card-top"><span>ISO 9001</span><i class="card-led"></i></div>
@@ -570,6 +628,10 @@
               </select>
             </div>
             <div class="field full"><label for="f-msg" data-i18n="form.project">Your project</label><textarea id="f-msg" name="message" rows="4" data-i18n-ph="form.projectPh" placeholder="Site, scope, timeline…"></textarea></div>
+            <div class="field full"><label class="check"><input type="checkbox" name="consent" required><span data-i18n="form.consent">I agree that HyperLink may use this information to contact me about my request.</span></label><small class="field-err" aria-live="polite"></small></div>
+            <!-- anti-spam: bots fill this hidden field, humans never see it -->
+            <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <div class="turnstile full" id="hl-turnstile"></div>
             <div class="form-foot full">
               <button type="submit" class="btn btn-primary magnetic"><span data-i18n="form.send">Send request</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
