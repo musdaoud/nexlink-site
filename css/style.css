@@ -244,7 +244,7 @@ main, .footer { position: relative; z-index: 2; }
   padding: 120px 0 110px;
 }
 .hero-inner { width: 100%; }
-.hero-copy { max-width: min(700px, 58%); }
+.hero-copy { max-width: min(720px, 58%); container-type: inline-size; }
 .cp-h0 { left: 65%; top: -280px; }
 .cp-h1 { left: 69.5%; top: 22%; }
 .cp-h2 { left: 72%; top: 62%; }
@@ -253,12 +253,16 @@ main, .footer { position: relative; z-index: 2; }
 .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 0 rgba(0, 240, 255, .6); animation: pulse 2s infinite; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); } }
 
+/* the headline scales with its own column (cqi), so the longest unbreakable
+   word — "hyper‑connectée." / "hyper‑linked." — always fits, at any width and zoom */
 .hero-title {
   margin: 24px 0 28px;
-  font-size: clamp(3rem, 6vw, 6.4rem);
-  line-height: .9; letter-spacing: -.05em; font-weight: 600;
+  font-size: clamp(2.2rem, 12.4cqi, 6.4rem);
+  line-height: .95; letter-spacing: -.035em; font-weight: 600;
 }
-.hero-title .line { display: block; overflow: hidden; padding: 0 .04em .08em 0; margin-bottom: -.06em; }
+html[lang="fr"] .hero-title { font-size: clamp(2.1rem, 10.6cqi, 6rem); }
+.hero-title .line { display: block; padding-bottom: .1em; margin-bottom: -.08em; clip-path: inset(-.4em -100vw 0 -100vw); }
+.hero-title .grad { padding-right: .08em; }
 .hero-title .line > span { display: inline-block; transition: transform 1.2s var(--ease); }
 .hero-title .line:nth-child(2) > span { transition-delay: .09s; }
 .js .hero-title .line > span { transform: translateY(110%); }
@@ -436,6 +440,8 @@ main, .footer { position: relative; z-index: 2; }
   grid-template-areas: "head side" "form side";
 }
 .contact-head { grid-area: head; }
+.contact-grid > * { min-width: 0; }
+.contact-list a { overflow-wrap: anywhere; }
 .contact-head h2 { margin: 20px 0 22px; font-size: clamp(2.6rem, 5.6vw, 5.2rem); line-height: .96; letter-spacing: -.05em; font-weight: 600; }
 .contact-head > p:not(.port-tag) { margin: 0; color: var(--muted); max-width: 520px; font-size: clamp(16px, 1.3vw, 18px); }
 .contact-list { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 2px; }
@@ -605,7 +611,6 @@ main, .footer { position: relative; z-index: 2; }
 
 @media (max-width: 640px) {
   :root { --lane-x: 0px; --lane-gap: 32px; }
-  .hero-title { font-size: clamp(2.3rem, 10.6vw, 3.6rem); }
   .logo-word small { display: none; }
   .logo-mark { width: 40px; height: 26px; }
   .nav-right { gap: 10px; }
@@ -625,6 +630,12 @@ main, .footer { position: relative; z-index: 2; }
   .sw-metrics { grid-template-columns: 1fr 1fr; }
   .sw-metrics div:last-child { display: none; }
   .node { width: 36px; height: 20px; }
+}
+
+@media (max-width: 400px) {
+  .contact-list li { flex-direction: column; gap: 2px; }
+  .contact-list span { width: auto; }
+  .sw-status { font-size: 19px; }
 }
 
 /* ---------- mobile action bar + menu extras (hidden on desktop) ---------- */

@@ -260,6 +260,9 @@
   const root = document.documentElement;
   let lang = DICT[root.lang] ? root.lang : 'fr';
 
+  // French typography: narrow no-break space before : ; ? ! so they never start a line
+  Object.keys(DICT.fr).forEach(k => { DICT.fr[k] = DICT.fr[k].replace(/ ([:;?!])/g, '\u202F$1'); });
+
   const t = key => (DICT[lang] && DICT[lang][key]) ?? DICT.en[key] ?? key;
 
   function apply() {
