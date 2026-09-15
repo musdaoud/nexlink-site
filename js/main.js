@@ -91,7 +91,9 @@
   }
 
   /* link state: the plug reached the switch port */
+  const t = key => (window.HL_I18N ? window.HL_I18N.t(key) : key);
   const shortTexts = document.querySelectorAll('[data-link-text]');
+  const tinyTexts = document.querySelectorAll('[data-link-short]');
   const longText = document.querySelector('[data-link-long]');
   const leds = [...document.querySelectorAll('.sw-leds i')];
   const metrics = {
@@ -99,17 +101,23 @@
     thr: document.querySelector('[data-metric="thr"]'),
     pkt: document.querySelector('[data-metric="pkt"]'),
   };
-  let ledTimers = [], metricTimer = null, packets = 0;
+  let ledTimers = [], metricTimer = null, packets = 0, linkUp = false;
+
+  const renderLinkTexts = () => {
+    shortTexts.forEach(el => { el.textContent = t(linkUp ? 'link.up' : 'link.down'); });
+    tinyTexts.forEach(el => { el.textContent = t(linkUp ? 'link.shortUp' : 'link.shortDown'); });
+    if (longText) longText.textContent = t(linkUp ? 'link.established' : 'link.awaiting');
+  };
+  renderLinkTexts();
 
   window.addEventListener('cable:link', e => {
-    const up = e.detail;
-    shortTexts.forEach(el => { el.textContent = up ? '10G up' : (el.closest('.hud') ? 'Down' : 'Link down'); });
-    if (longText) longText.textContent = up ? 'Link established' : 'Awaiting connection…';
+    linkUp = e.detail;
+    renderLinkTexts();
 
     ledTimers.forEach(clearTimeout); ledTimers = [];
     clearInterval(metricTimer);
 
-    if (up) {
+    if (linkUp) {
       leds.forEach((led, i) => {
         ledTimers.push(setTimeout(() => {
           led.classList.add('on');
@@ -120,7 +128,7 @@
         metrics.lat.textContent = (0.3 + Math.random() * .3).toFixed(2) + ' ms';
         metrics.thr.textContent = (9.2 + Math.random() * .7).toFixed(1) + ' Gbps';
         packets += Math.floor(9000 + Math.random() * 6000);
-        metrics.pkt.textContent = packets.toLocaleString('en-US');
+        metrics.pkt.textContent = packets.toLocaleString(document.documentElement.lang === 'fr' ? 'fr-FR' : 'en-US');
         leds.forEach(l => { if (Math.random() < .12) l.classList.toggle('amber'); });
       }, 450);
     } else {
@@ -133,9 +141,11 @@
   /* demo form */
   const form = document.getElementById('contact-form');
   const note = document.getElementById('form-note');
+  let formSent = false;
   form.addEventListener('submit', e => {
     e.preventDefault();
-    note.textContent = 'Signal sent ✓ (demo — hook this up to your backend)';
+    formSent = true;
+    note.textContent = t('form.sent');
     note.classList.add('ok');
     form.reset();
   });
@@ -166,6 +176,14 @@
     burger.addEventListener('click', update);
     update();
   }
+
+  /* language switch: i18n.js rewrote the static text — refresh the dynamic bits */
+  window.addEventListener('i18n:change', () => {
+    renderLinkTexts();
+    if (formSent) note.textContent = t('form.sent');
+    const burgerOpen = body.classList.contains('menu-open');
+    burger.setAttribute('aria-expanded', String(burgerOpen));
+  });
 
   document.getElementById('year').textContent = new Date().getFullYear();
 })();

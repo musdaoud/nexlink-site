@@ -15,21 +15,26 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- wire spec ---------- */
-  const WHITE = '#ece6da';
-  const C = { orange: '#ff8a1f', green: '#22c55e', blue: '#2f7bff', brown: '#b8743f' };
-  // T568B pin 1 → 8. slot = pair position inside the jacket, side = strand of that pair
+  // 'brand' = HyperLink blues; 't568b' = real-world RJ45 wire colours
+  const PALETTE = 'brand';
+  const COLORS = {
+    brand: { white: '#E6E6E6', a: '#00F0FF', b: '#1E6BFF', c: '#3BA0FF', d: '#8FA6C4', packets: ['#00F0FF', '#FFFFFF', '#3BA0FF', '#00F0FF'] },
+    t568b: { white: '#ece6da', a: '#ff8a1f', b: '#22c55e', c: '#2f7bff', d: '#b8743f', packets: ['#ff8a1f', '#22c55e', '#2f7bff', '#ffffff'] },
+  }[PALETTE];
+  const WHITE = COLORS.white;
+  // pin 1 → 8 (T568B layout). slot = pair position inside the jacket, side = strand of that pair
   const WIRES = [
-    { base: WHITE, stripe: C.orange, slot: 0, side: 1 },
-    { base: C.orange,                slot: 0, side: -1 },
-    { base: WHITE, stripe: C.green,  slot: 1, side: 1 },
-    { base: C.blue,                  slot: 2, side: 1 },
-    { base: WHITE, stripe: C.blue,   slot: 2, side: -1 },
-    { base: C.green,                 slot: 1, side: -1 },
-    { base: WHITE, stripe: C.brown,  slot: 3, side: 1 },
-    { base: C.brown,                 slot: 3, side: -1 },
+    { base: WHITE, stripe: COLORS.a, slot: 0, side: 1 },
+    { base: COLORS.a,                slot: 0, side: -1 },
+    { base: WHITE, stripe: COLORS.b, slot: 1, side: 1 },
+    { base: COLORS.c,                slot: 2, side: 1 },
+    { base: WHITE, stripe: COLORS.c, slot: 2, side: -1 },
+    { base: COLORS.b,                slot: 1, side: -1 },
+    { base: WHITE, stripe: COLORS.d, slot: 3, side: 1 },
+    { base: COLORS.d,                slot: 3, side: -1 },
   ].map(w => ({ ...w, baseDark: shade(w.base, .55), stripeDark: w.stripe && shade(w.stripe, .55) }));
   const TWIST = [62, 74, 55, 86];            // lay length per pair — different, like real CAT6
-  const PACKET_COLORS = [C.orange, C.green, C.blue, '#ffffff'];
+  const PACKET_COLORS = COLORS.packets;
 
   const STEP = 3;          // resample spacing (px)
   const U = 3;             // wire thickness at scale 1
@@ -345,9 +350,9 @@
       for (let j = 0; j <= jm; j++) { const h = 4.2 * U * CF[j]; ctx.lineTo(CX[j] + CNX[j] * h, CY[j] + CNY[j] * h); }
       for (let j = jm; j >= 0; j--) { const h = 4.2 * U * CF[j]; ctx.lineTo(CX[j] - CNX[j] * h, CY[j] - CNY[j] * h); }
       ctx.closePath();
-      ctx.fillStyle = `rgba(60,110,220,${.16 * jacketA})`;
+      ctx.fillStyle = `rgba(0,150,255,${.14 * jacketA})`;
       ctx.fill();
-      ctx.strokeStyle = `rgba(150,190,255,${.3 * jacketA})`;
+      ctx.strokeStyle = `rgba(120,225,255,${.32 * jacketA})`;
       ctx.lineWidth = 1;
       ctx.stroke();
     }

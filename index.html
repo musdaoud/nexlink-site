@@ -3,16 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>NEXLINK — IT Infrastructure &amp; Solutions</title>
-  <meta name="description" content="Placeholder description — IT infrastructure, networks, cloud and security solutions.">
-  <meta name="theme-color" content="#04060c">
-  <script>document.documentElement.classList.add('js')</script>
+  <title>HyperLink — IT Infrastructure, ISO &amp; Consulting, Integrated Solutions</title>
+  <meta name="description" data-i18n-content="meta.description" content="HyperLink designs, deploys and runs IT infrastructure, delivers ISO consulting and integrated solutions.">
+  <meta name="theme-color" content="#0A192F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='100' y1='0' y2='0' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%231E6BFF'/%3E%3Cstop offset='1' stop-color='%2300F0FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23g)' stroke-width='9'%3E%3Crect x='5' y='19' width='58' height='28' rx='14' transform='rotate(-35 34 33)'/%3E%3Crect x='37' y='17' width='58' height='28' rx='14' transform='rotate(-35 66 31)'/%3E%3C/g%3E%3C/svg%3E">
+  <script>
+    // pick the language before first paint: ?lang= → saved choice → browser → French
+    (function () {
+      var q = new URLSearchParams(location.search).get('lang'), saved = null;
+      try { saved = localStorage.getItem('hl-lang'); } catch (e) {}
+      var nav = (navigator.language || '').slice(0, 2);
+      var lang = (q === 'fr' || q === 'en') ? q : (saved === 'fr' || saved === 'en') ? saved : (nav === 'en' ? 'en' : 'fr');
+      document.documentElement.lang = lang;
+      document.documentElement.classList.add('js');
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- ============ LOGO (placeholder recreation — swap the <symbol> for the official file) ============ -->
+  <svg class="sprite" aria-hidden="true">
+    <defs>
+      <linearGradient id="hl-grad" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#1E6BFF"/>
+        <stop offset=".55" stop-color="#1FA8FF"/>
+        <stop offset="1" stop-color="#00F0FF"/>
+      </linearGradient>
+    </defs>
+    <symbol id="hl-mark" viewBox="0 0 100 64">
+      <g fill="none" stroke="url(#hl-grad)" stroke-width="7.5" stroke-linecap="round">
+        <rect x="5" y="19" width="58" height="28" rx="14" transform="rotate(-35 34 33)"/>
+        <rect x="37" y="17" width="58" height="28" rx="14" transform="rotate(-35 66 31)"/>
+        <path d="M44 41 49 34M51 30 56 23"/>
+      </g>
+    </symbol>
+  </svg>
 
   <div class="bg" aria-hidden="true"></div>
 
@@ -22,15 +51,15 @@
     <svg class="plug-svg">
       <defs>
         <linearGradient id="g-plastic" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#dbe9ff" stop-opacity=".38"/>
-          <stop offset=".3" stop-color="#dbe9ff" stop-opacity=".08"/>
-          <stop offset=".72" stop-color="#dbe9ff" stop-opacity=".14"/>
-          <stop offset="1" stop-color="#dbe9ff" stop-opacity=".4"/>
+          <stop offset="0" stop-color="#dff6ff" stop-opacity=".38"/>
+          <stop offset=".3" stop-color="#dff6ff" stop-opacity=".08"/>
+          <stop offset=".72" stop-color="#dff6ff" stop-opacity=".14"/>
+          <stop offset="1" stop-color="#dff6ff" stop-opacity=".4"/>
         </linearGradient>
         <linearGradient id="g-boot" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#2f7bff" stop-opacity=".7"/>
-          <stop offset=".5" stop-color="#2f7bff" stop-opacity=".28"/>
-          <stop offset="1" stop-color="#2f7bff" stop-opacity=".7"/>
+          <stop offset="0" stop-color="#00F0FF" stop-opacity=".6"/>
+          <stop offset=".5" stop-color="#1E6BFF" stop-opacity=".3"/>
+          <stop offset="1" stop-color="#00F0FF" stop-opacity=".6"/>
         </linearGradient>
         <linearGradient id="g-gold" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0" stop-color="#8a6418"/>
@@ -66,43 +95,42 @@
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#top" class="logo" aria-label="NEXLINK home">
-        <!-- PLACEHOLDER LOGO -->
-        <span class="logo-mark" aria-hidden="true">
-          <i style="--c:#ff8a1f" class="s"></i><i style="--c:#ff8a1f"></i><i style="--c:#22c55e" class="s"></i><i style="--c:#2f7bff"></i>
-          <i style="--c:#2f7bff" class="s"></i><i style="--c:#22c55e"></i><i style="--c:#c07a45" class="s"></i><i style="--c:#c07a45"></i>
-        </span>
-        <span class="logo-word">NEXLINK<small>IT Solutions</small></span>
+      <a href="#top" class="logo" aria-label="HyperLink">
+        <svg class="logo-mark" aria-hidden="true"><use href="#hl-mark"/></svg>
+        <span class="logo-word">hyperlink<small data-i18n="brand.tagline">Integrated IT solutions</small></span>
       </a>
 
-      <nav class="nav-links" aria-label="Main">
-        <a href="#solutions">Solutions</a>
-        <a href="#process">Process</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <nav class="nav-links" data-i18n-aria="nav.main" aria-label="Main">
+        <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="nav-right">
-        <span class="nav-status"><i class="led"></i><span data-link-text>Link down</span></span>
-        <a href="#contact" class="btn btn-sm btn-primary magnetic">Get a quote</a>
-        <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+        <div class="lang" role="group" data-i18n-aria="lang.label" aria-label="Language">
+          <button type="button" data-lang="fr" aria-pressed="false" lang="fr">FR</button>
+          <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        </div>
+        <a href="#contact" class="btn btn-sm btn-primary magnetic" data-i18n="cta.quote">Get a quote</a>
+        <button class="burger" data-i18n-aria="nav.menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <div class="mobile-menu" id="mobile-menu">
     <nav>
-      <a href="#solutions"><span>01</span>Solutions</a>
-      <a href="#process"><span>02</span>Process</a>
-      <a href="#projects"><span>03</span>Projects</a>
-      <a href="#contact"><span>04</span>Contact</a>
+      <a href="#solutions"><span>01</span><b data-i18n="nav.solutions">Solutions</b></a>
+      <a href="#process"><span>02</span><b data-i18n="nav.process">Process</b></a>
+      <a href="#projects"><span>03</span><b data-i18n="nav.projects">Projects</b></a>
+      <a href="#contact"><span>04</span><b data-i18n="nav.contact">Contact</b></a>
     </nav>
     <div class="mm-foot">
-      <a href="#contact" class="btn btn-primary">Get a quote
+      <a href="#contact" class="btn btn-primary"><span data-i18n="cta.quote">Get a quote</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <div class="mm-contact">
-        <a href="mailto:hello@nexlink.example">hello@nexlink.example</a>
+        <a href="mailto:hello@hyperlink.example">hello@hyperlink.example</a>
         <a href="tel:+000000000">+00 (0) 000 000 000</a>
       </div>
       <span class="mm-status"><i class="led"></i><span data-link-text>Link down</span></span>
@@ -120,45 +148,45 @@
 
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow" data-in style="--d:.05s"><span class="pulse"></span>IT Infrastructure · Networks · Cloud</p>
+          <p class="eyebrow" data-in style="--d:.05s"><span class="pulse"></span><span data-i18n="hero.eyebrow">IT Infrastructure · ISO &amp; Consulting · Integrated Solutions</span></p>
           <h1 class="hero-title">
-            <span class="line"><span>Wired for</span></span>
-            <span class="line"><span>what&rsquo;s <em class="grad">next.</em></span></span>
+            <span class="line"><span data-i18n="hero.t1">Your business,</span></span>
+            <span class="line"><span data-i18n-html="hero.t2"><em class="grad">hyper&#8209;linked.</em></span></span>
           </h1>
-          <p class="hero-lead" data-in style="--d:.35s">
-            Placeholder text — lorem ipsum dolor sit amet. We design, deploy and run the infrastructure your business
-            runs on: structured cabling, networks, cloud, security and 24/7 support.
+          <p class="hero-lead" data-in style="--d:.35s" data-i18n="hero.lead">
+            We design, deploy and run the infrastructure your business runs on — networks, structured cabling, security
+            and cloud — and guide you to ISO certification.
           </p>
           <div class="hero-actions" data-in style="--d:.45s">
-            <a href="#solutions" class="btn btn-primary magnetic">Explore solutions
+            <a href="#solutions" class="btn btn-primary magnetic"><span data-i18n="hero.cta1">Explore solutions</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="#contact" class="btn btn-ghost magnetic">Talk to an engineer</a>
+            <a href="#contact" class="btn btn-ghost magnetic" data-i18n="hero.cta2">Talk to an engineer</a>
           </div>
           <ul class="hero-specs" data-in style="--d:.55s">
-            <li><b>CAT6A</b><span>Cabling</span></li>
-            <li><b>10G</b><span>Networks</span></li>
-            <li><b>24/7</b><span>Support</span></li>
+            <li><b>CAT6A</b><span data-i18n="hero.spec1">Cabling</span></li>
+            <li><b>ISO</b><span data-i18n="hero.spec2">Consulting</span></li>
+            <li><b>24/7</b><span data-i18n="hero.spec3">Support</span></li>
           </ul>
         </div>
       </div>
 
       <div class="callouts" aria-hidden="true">
-        <div class="callout c1"><span>Connector</span><b>RJ45 · 8P8C</b></div>
-        <div class="callout c2"><span>Pinout</span><b>T568B</b></div>
-        <div class="callout c3"><span>Spec</span><b>CAT6A · 500 MHz</b></div>
+        <div class="callout c1"><span data-i18n="hero.c1">Connector</span><b>RJ45 · 8P8C</b></div>
+        <div class="callout c2"><span data-i18n="hero.c2">Pinout</span><b>T568B</b></div>
+        <div class="callout c3"><span data-i18n="hero.c3">Standard</span><b>CAT6A · 500 MHz</b></div>
       </div>
 
       <a href="#solutions" class="scroll-hint" data-in style="--d:.8s">
-        <span>Scroll to pull the cable</span><i></i>
+        <span data-i18n="hero.scroll">Scroll to pull the cable</span><i></i>
       </a>
     </section>
 
     <!-- ============ MARQUEE ============ -->
     <div class="band" aria-hidden="true">
       <div class="band-track">
-        <div class="band-item"><i style="--c:#ff8a1f"></i>Networking<i style="--c:#22c55e"></i>Structured Cabling<i style="--c:#2f7bff"></i>Cloud<i style="--c:#c07a45"></i>Cybersecurity<i style="--c:#efe9dd"></i>Datacenter<i style="--c:#ff8a1f"></i>VoIP<i style="--c:#22c55e"></i>Managed IT</div>
-        <div class="band-item"><i style="--c:#ff8a1f"></i>Networking<i style="--c:#22c55e"></i>Structured Cabling<i style="--c:#2f7bff"></i>Cloud<i style="--c:#c07a45"></i>Cybersecurity<i style="--c:#efe9dd"></i>Datacenter<i style="--c:#ff8a1f"></i>VoIP<i style="--c:#22c55e"></i>Managed IT</div>
+        <div class="band-item"><i style="--c:#00F0FF"></i><span data-i18n="band.1">Networks</span><i style="--c:#1E6BFF"></i><span data-i18n="band.2">Structured cabling</span><i style="--c:#E6E6E6"></i><span data-i18n="band.3">Cybersecurity</span><i style="--c:#00F0FF"></i><span data-i18n="band.4">ISO consulting</span><i style="--c:#3BA0FF"></i><span data-i18n="band.5">Datacenter &amp; cloud</span><i style="--c:#E6E6E6"></i><span data-i18n="band.6">Integrated solutions</span></div>
+        <div class="band-item"><i style="--c:#00F0FF"></i><span data-i18n="band.1">Networks</span><i style="--c:#1E6BFF"></i><span data-i18n="band.2">Structured cabling</span><i style="--c:#E6E6E6"></i><span data-i18n="band.3">Cybersecurity</span><i style="--c:#00F0FF"></i><span data-i18n="band.4">ISO consulting</span><i style="--c:#3BA0FF"></i><span data-i18n="band.5">Datacenter &amp; cloud</span><i style="--c:#E6E6E6"></i><span data-i18n="band.6">Integrated solutions</span></div>
       </div>
     </div>
 
@@ -169,58 +197,57 @@
         <span class="cable-pt l" style="top:260px"></span>
 
         <div class="section-head reveal">
-          <p class="port-tag"><b>Port 01</b> Solutions</p>
-          <h2>Everything your IT<br>needs, <span class="grad">end&#8209;to&#8209;end.</span></h2>
-          <p>Placeholder paragraph — sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Six core
-            practices, one team, one point of contact.</p>
+          <p class="port-tag"><b>Port 01</b> <span data-i18n="nav.solutions">Solutions</span></p>
+          <h2 data-i18n-html="services.title">Everything your IT<br>needs, <span class="grad">end&#8209;to&#8209;end.</span></h2>
+          <p data-i18n="services.lead">Infrastructure, security, compliance and support — six practices, one team and a single point of contact.</p>
         </div>
 
         <div class="services-grid">
-          <article class="card reveal" style="--c:#ff8a1f">
+          <article class="card reveal" style="--c:#00F0FF">
             <div class="card-top"><span>01 / 06</span><i class="card-led"></i></div>
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5 6.8 16.8M12 11.5l5.2 5.3"/></svg></div>
-            <h3>Network Infrastructure</h3>
-            <p>Placeholder — LAN, WAN and wireless networks designed for speed, resilience and growth.</p>
+            <h3 data-i18n="s1.title">Network &amp; IT Infrastructure</h3>
+            <p data-i18n="s1.text">LAN, WAN and Wi‑Fi designed for speed and resilience, sized for where your business is going.</p>
             <ul class="tags"><li>LAN / WAN</li><li>Wi‑Fi 7</li><li>SD‑WAN</li></ul>
           </article>
 
-          <article class="card striped reveal" style="--c:#ff8a1f; --d:.08s">
+          <article class="card striped reveal" style="--c:#3BA0FF; --d:.08s">
             <div class="card-top"><span>02 / 06</span><i class="card-led"></i></div>
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3h9v7.5a4.5 4.5 0 0 1-9 0V3z"/><path d="M10 3v3.5M12 3v3.5M14 3v3.5M12 15v6"/></svg></div>
-            <h3>Structured Cabling</h3>
-            <p>Placeholder — copper and fiber cabling, racks and patch panels, certified and documented.</p>
-            <ul class="tags"><li>CAT6A</li><li>Fiber OM4</li><li>Racks</li></ul>
+            <h3 data-i18n="s2.title">Structured Cabling &amp; Fiber</h3>
+            <p data-i18n="s2.text">Copper and fiber cabling, racks and patch panels — certified, labeled and documented.</p>
+            <ul class="tags"><li>CAT6A</li><li>OM4</li><li data-i18n="s2.tag">Racks</li></ul>
           </article>
 
-          <article class="card reveal" style="--c:#2f7bff; --d:.16s">
+          <article class="card reveal" style="--c:#1E6BFF; --d:.16s">
             <div class="card-top"><span>03 / 06</span><i class="card-led"></i></div>
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5h10.5a4.5 4.5 0 0 0 .6-8.96A6 6 0 0 0 6.3 10.6 4 4 0 0 0 7 18.5z"/></svg></div>
-            <h3>Cloud &amp; Virtualization</h3>
-            <p>Placeholder — hybrid cloud, migrations, backup and virtual infrastructure that scales on demand.</p>
-            <ul class="tags"><li>Hybrid</li><li>VMware</li><li>Backup</li></ul>
-          </article>
-
-          <article class="card reveal" style="--c:#22c55e">
-            <div class="card-top"><span>04 / 06</span><i class="card-led"></i></div>
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6L12 3z"/><path d="m9 12 2 2 4-4"/></svg></div>
-            <h3>Cybersecurity</h3>
-            <p>Placeholder — firewalls, endpoint protection, audits and monitoring to keep threats outside.</p>
-            <ul class="tags"><li>Firewall</li><li>SOC</li><li>Audit</li></ul>
+            <h3 data-i18n="s3.title">Cybersecurity</h3>
+            <p data-i18n="s3.text">Firewalls, endpoint protection, audits and monitoring to keep threats outside your network.</p>
+            <ul class="tags"><li data-i18n="s3.tag">Firewall</li><li>EDR</li><li>Audit</li></ul>
           </article>
 
-          <article class="card striped reveal" style="--c:#22c55e; --d:.08s">
+          <article class="card reveal" style="--c:#00F0FF">
+            <div class="card-top"><span>04 / 06</span><i class="card-led"></i></div>
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="m9.5 14 2 2 3.5-4"/></svg></div>
+            <h3 data-i18n="s4.title">ISO Certification &amp; Consulting</h3>
+            <p data-i18n="s4.text">Gap analysis, implementation and audit readiness for ISO 27001, ISO 9001 and more.</p>
+            <ul class="tags"><li>ISO 27001</li><li>ISO 9001</li><li>GRC</li></ul>
+          </article>
+
+          <article class="card striped reveal" style="--c:#1E6BFF; --d:.08s">
             <div class="card-top"><span>05 / 06</span><i class="card-led"></i></div>
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01M12 7h5M12 17h5"/></svg></div>
-            <h3>Datacenter &amp; Servers</h3>
-            <p>Placeholder — server rooms, storage, power and cooling built to run without interruption.</p>
-            <ul class="tags"><li>Servers</li><li>Storage</li><li>UPS</li></ul>
+            <h3 data-i18n="s5.title">Datacenter &amp; Cloud</h3>
+            <p data-i18n="s5.text">Servers, storage, virtualization and hybrid cloud built to run without interruption.</p>
+            <ul class="tags"><li data-i18n="s5.tag1">Servers</li><li>VMware</li><li data-i18n="s5.tag2">Hybrid cloud</li></ul>
           </article>
 
-          <article class="card reveal" style="--c:#c07a45; --d:.16s">
+          <article class="card reveal" style="--c:#E6E6E6; --d:.16s">
             <div class="card-top"><span>06 / 06</span><i class="card-led"></i></div>
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3.5 3.5 0 0 1-3.5 2H13"/></svg></div>
-            <h3>Managed IT &amp; Support</h3>
-            <p>Placeholder — helpdesk, maintenance and proactive monitoring, around the clock.</p>
+            <h3 data-i18n="s6.title">Integrated Solutions &amp; Support</h3>
+            <p data-i18n="s6.text">One partner from design to operations: helpdesk, maintenance and proactive 24/7 monitoring.</p>
             <ul class="tags"><li>Helpdesk</li><li>SLA</li><li>24/7</li></ul>
           </article>
         </div>
@@ -228,15 +255,15 @@
       </div>
     </section>
 
-    <!-- ============ STATS ============ -->
+    <!-- ============ STATS (sample figures) ============ -->
     <section class="stats">
       <div class="container laned">
         <span class="cable-pt node l mid"><i class="led"></i></span>
         <div class="stats-grid">
-          <div class="stat reveal"><span class="stat-num" data-count="250" data-suffix="+">0</span><span class="stat-label">Projects delivered</span></div>
-          <div class="stat reveal" style="--d:.08s"><span class="stat-num" data-count="99.98" data-decimals="2" data-suffix="%">0</span><span class="stat-label">Network uptime</span></div>
-          <div class="stat reveal" style="--d:.16s"><span class="stat-num" data-count="120" data-suffix="km">0</span><span class="stat-label">Cable deployed</span></div>
-          <div class="stat reveal" style="--d:.24s"><span class="stat-num" data-count="15" data-suffix="min">0</span><span class="stat-label">Avg. response time</span></div>
+          <div class="stat reveal"><span class="stat-num" data-count="250" data-suffix="+">0</span><span class="stat-label" data-i18n="stats.1">Projects delivered</span></div>
+          <div class="stat reveal" style="--d:.08s"><span class="stat-num" data-count="99.98" data-decimals="2" data-suffix="%">0</span><span class="stat-label" data-i18n="stats.2">Network uptime</span></div>
+          <div class="stat reveal" style="--d:.16s"><span class="stat-num" data-count="120" data-suffix="km">0</span><span class="stat-label" data-i18n="stats.3">Cable deployed</span></div>
+          <div class="stat reveal" style="--d:.24s"><span class="stat-num" data-count="15" data-suffix="min">0</span><span class="stat-label" data-i18n="stats.4">Avg. response time</span></div>
         </div>
       </div>
     </section>
@@ -246,9 +273,9 @@
       <div class="container laned">
         <span class="cable-pt node l" data-scope=".process"><i class="led"></i></span>
         <div class="section-head reveal">
-          <p class="port-tag"><b>Port 02</b> Process</p>
-          <h2>From audit to uptime,<br><span class="grad">one clean run.</span></h2>
-          <p>Placeholder paragraph — ut enim ad minim veniam, quis nostrud exercitation. A clear method, no loose ends.</p>
+          <p class="port-tag"><b>Port 02</b> <span data-i18n="nav.process">Process</span></p>
+          <h2 data-i18n-html="process.title">From audit to uptime,<br><span class="grad">one clean run.</span></h2>
+          <p data-i18n="process.lead">A clear method with no loose ends — you always know what happens next.</p>
         </div>
         <span class="cable-pt l" style="bottom:-30px"></span>
       </div>
@@ -259,36 +286,36 @@
         <div class="step">
           <span class="cable-pt step-port" data-scope=".step"><i class="led"></i></span>
           <div class="step-card reveal">
-            <span class="step-num">STEP 01</span>
-            <h3>Audit</h3>
-            <p>Placeholder — we map your existing infrastructure, risks and needs on site.</p>
+            <span class="step-num"><span data-i18n="process.step">Step</span> 01</span>
+            <h3 data-i18n="p1.title">Audit</h3>
+            <p data-i18n="p1.text">We map your existing infrastructure, risks and needs on site.</p>
           </div>
         </div>
 
         <div class="step right">
           <span class="cable-pt step-port" data-scope=".step"><i class="led"></i></span>
           <div class="step-card reveal">
-            <span class="step-num">STEP 02</span>
-            <h3>Design</h3>
-            <p>Placeholder — architecture, bill of materials and a transparent quote.</p>
+            <span class="step-num"><span data-i18n="process.step">Step</span> 02</span>
+            <h3 data-i18n="p2.title">Design</h3>
+            <p data-i18n="p2.text">Architecture, bill of materials and a transparent quote.</p>
           </div>
         </div>
 
         <div class="step">
           <span class="cable-pt step-port" data-scope=".step"><i class="led"></i></span>
           <div class="step-card reveal">
-            <span class="step-num">STEP 03</span>
-            <h3>Deploy</h3>
-            <p>Placeholder — installation, configuration and testing with minimal downtime.</p>
+            <span class="step-num"><span data-i18n="process.step">Step</span> 03</span>
+            <h3 data-i18n="p3.title">Deploy</h3>
+            <p data-i18n="p3.text">Installation, configuration and testing with minimal downtime.</p>
           </div>
         </div>
 
         <div class="step right">
           <span class="cable-pt step-port" data-scope=".step"><i class="led"></i></span>
           <div class="step-card reveal">
-            <span class="step-num">STEP 04</span>
-            <h3>Monitor &amp; Support</h3>
-            <p>Placeholder — continuous monitoring, maintenance and a team that answers.</p>
+            <span class="step-num"><span data-i18n="process.step">Step</span> 04</span>
+            <h3 data-i18n="p4.title">Monitor &amp; Support</h3>
+            <p data-i18n="p4.text">Continuous monitoring, maintenance and a team that answers.</p>
           </div>
         </div>
 
@@ -296,19 +323,19 @@
       </div>
     </section>
 
-    <!-- ============ PROJECTS ============ -->
+    <!-- ============ PROJECTS (sample projects) ============ -->
     <section class="section projects" id="projects">
       <div class="container laned-r">
         <span class="cable-pt node r" data-scope=".projects"><i class="led"></i></span>
         <span class="cable-pt r" style="top:260px"></span>
         <div class="section-head reveal">
-          <p class="port-tag"><b>Port 03</b> Projects</p>
-          <h2>Built, cabled,<br><span class="grad">and running.</span></h2>
-          <p>Placeholder paragraph — duis aute irure dolor in reprehenderit. A few recent deployments.</p>
+          <p class="port-tag"><b>Port 03</b> <span data-i18n="nav.projects">Projects</span></p>
+          <h2 data-i18n-html="projects.title">Built, cabled,<br><span class="grad">and running.</span></h2>
+          <p data-i18n="projects.lead">A selection of recent deployments.</p>
         </div>
 
         <div class="projects-grid">
-          <article class="project big reveal" style="--c:#2f7bff">
+          <article class="project big reveal" style="--c:#00F0FF">
             <div class="project-visual">
               <svg class="viz" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
                 <rect class="o" x="130" y="22" width="140" height="256" rx="10"/>
@@ -334,13 +361,13 @@
             <div class="project-body">
               <div>
                 <span class="project-tag">Datacenter · 2026</span>
-                <h3>Placeholder datacenter migration</h3>
+                <h3 data-i18n="pr1.title">Datacenter migration</h3>
               </div>
               <span class="project-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
             </div>
           </article>
 
-          <article class="project reveal" style="--c:#22c55e; --d:.08s">
+          <article class="project reveal" style="--c:#3BA0FF; --d:.08s">
             <div class="project-visual">
               <svg class="viz" viewBox="0 0 400 220" preserveAspectRatio="xMidYMid meet">
                 <path class="mesh" d="M60 110 L150 50 L250 70 L340 110 L260 170 L150 160 Z M150 50 L150 160 M250 70 L260 170 M60 110 L250 70 M150 160 L340 110"/>
@@ -351,14 +378,14 @@
             </div>
             <div class="project-body">
               <div>
-                <span class="project-tag">Network · 2025</span>
-                <h3>Placeholder multi‑site network</h3>
+                <span class="project-tag" data-i18n="pr2.tag">Network · 2025</span>
+                <h3 data-i18n="pr2.title">Multi‑site network</h3>
               </div>
               <span class="project-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
             </div>
           </article>
 
-          <article class="project reveal" style="--c:#ff8a1f; --d:.16s">
+          <article class="project reveal" style="--c:#00F0FF; --d:.16s">
             <div class="project-visual">
               <svg class="viz" viewBox="0 0 400 220" preserveAspectRatio="xMidYMid meet">
                 <g class="radar">
@@ -372,8 +399,8 @@
             </div>
             <div class="project-body">
               <div>
-                <span class="project-tag">Security · 2025</span>
-                <h3>Placeholder security overhaul</h3>
+                <span class="project-tag">ISO 27001 · 2025</span>
+                <h3 data-i18n="pr3.title">Security &amp; compliance program</h3>
               </div>
               <span class="project-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
             </div>
@@ -383,11 +410,11 @@
       </div>
     </section>
 
-    <!-- ============ PARTNERS ============ -->
-    <div class="band partners" aria-label="Technology partners (placeholder)">
+    <!-- ============ STANDARDS ============ -->
+    <div class="band partners" data-i18n-aria="band.standards" aria-label="Standards and technologies">
       <div class="band-track slow">
-        <div class="band-item logos"><span>PARTNER_01</span><span>◆ PARTNER 02</span><span>partner/03</span><span>● PARTNER 04</span><span>PARTNER_05</span><span>▲ PARTNER 06</span></div>
-        <div class="band-item logos" aria-hidden="true"><span>PARTNER_01</span><span>◆ PARTNER 02</span><span>partner/03</span><span>● PARTNER 04</span><span>PARTNER_05</span><span>▲ PARTNER 06</span></div>
+        <div class="band-item logos"><span>ISO/IEC 27001</span><span>◆ ISO 9001</span><span>TIA‑568</span><span>● IEEE 802.3</span><span>CAT6A</span><span>▲ OM4 / OS2</span></div>
+        <div class="band-item logos" aria-hidden="true"><span>ISO/IEC 27001</span><span>◆ ISO 9001</span><span>TIA‑568</span><span>● IEEE 802.3</span><span>CAT6A</span><span>▲ OM4 / OS2</span></div>
       </div>
     </div>
 
@@ -396,13 +423,13 @@
       <div class="container laned-r">
         <div class="contact-grid">
           <div class="contact-head reveal">
-            <p class="port-tag"><b>Port 04</b> Contact</p>
-            <h2>Ready to<br><span class="grad">plug in?</span></h2>
-            <p>Placeholder paragraph — tell us about your project and an engineer will get back to you within one business day.</p>
+            <p class="port-tag"><b>Port 04</b> <span data-i18n="nav.contact">Contact</span></p>
+            <h2 data-i18n-html="contact.title">Ready to<br><span class="grad">plug in?</span></h2>
+            <p data-i18n="contact.lead">Tell us about your project and an engineer will get back to you within one business day.</p>
             <ul class="contact-list">
-              <li><span>Email</span><a href="mailto:hello@nexlink.example">hello@nexlink.example</a></li>
-              <li><span>Phone</span><a href="tel:+000000000">+00 (0) 000 000 000</a></li>
-              <li><span>Office</span>Placeholder street, City</li>
+              <li><span data-i18n="contact.email">Email</span><a href="mailto:hello@hyperlink.example">hello@hyperlink.example</a></li>
+              <li><span data-i18n="contact.phone">Phone</span><a href="tel:+000000000">+00 (0) 000 000 000</a></li>
+              <li><span data-i18n="contact.office">Office</span><em class="plain" data-i18n="contact.address">Address to be confirmed</em></li>
             </ul>
             <span class="cable-pt m-only cp-contact"></span>
           </div>
@@ -424,41 +451,41 @@
                 </span>
               </div>
               <div class="sw-body">
-                <div class="sw-head"><span>NXL-CORE-01</span><span>24P · 10GbE</span></div>
+                <div class="sw-head"><span>HL-CORE-01</span><span>24P · 10GbE</span></div>
                 <p class="sw-status"><i class="led"></i><span data-link-long>Awaiting connection…</span></p>
                 <div class="sw-leds" aria-hidden="true">
                   <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
                   <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
                 </div>
                 <div class="sw-metrics">
-                  <div><span>Latency</span><b data-metric="lat">— ms</b></div>
-                  <div><span>Throughput</span><b data-metric="thr">— Gbps</b></div>
-                  <div><span>Packets</span><b data-metric="pkt">0</b></div>
+                  <div><span data-i18n="sw.latency">Latency</span><b data-metric="lat">— ms</b></div>
+                  <div><span data-i18n="sw.throughput">Throughput</span><b data-metric="thr">— Gbps</b></div>
+                  <div><span data-i18n="sw.packets">Packets</span><b data-metric="pkt">0</b></div>
                 </div>
               </div>
             </div>
           </div>
 
           <form class="form reveal" id="contact-form" novalidate>
-            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Jane Doe" autocomplete="name"></div>
-            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email"></div>
-            <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" placeholder="Company name" autocomplete="organization"></div>
-            <div class="field"><label for="f-need">Need</label>
+            <div class="field"><label for="f-name" data-i18n="form.name">Name</label><input id="f-name" name="name" type="text" data-i18n-ph="form.namePh" placeholder="Jane Doe" autocomplete="name"></div>
+            <div class="field"><label for="f-email" data-i18n="contact.email">Email</label><input id="f-email" name="email" type="email" data-i18n-ph="form.emailPh" placeholder="jane@company.com" autocomplete="email"></div>
+            <div class="field"><label for="f-company" data-i18n="form.company">Company</label><input id="f-company" name="company" type="text" data-i18n-ph="form.companyPh" placeholder="Company name" autocomplete="organization"></div>
+            <div class="field"><label for="f-need" data-i18n="form.need">Need</label>
               <select id="f-need" name="need">
-                <option>Network infrastructure</option>
-                <option>Structured cabling</option>
-                <option>Cloud &amp; virtualization</option>
-                <option>Cybersecurity</option>
-                <option>Datacenter &amp; servers</option>
-                <option>Managed IT &amp; support</option>
+                <option value="network" data-i18n="s1.title">Network &amp; IT Infrastructure</option>
+                <option value="cabling" data-i18n="s2.title">Structured Cabling &amp; Fiber</option>
+                <option value="security" data-i18n="s3.title">Cybersecurity</option>
+                <option value="iso" data-i18n="s4.title">ISO Certification &amp; Consulting</option>
+                <option value="datacenter" data-i18n="s5.title">Datacenter &amp; Cloud</option>
+                <option value="support" data-i18n="s6.title">Integrated Solutions &amp; Support</option>
               </select>
             </div>
-            <div class="field full"><label for="f-msg">Project</label><textarea id="f-msg" name="message" rows="4" placeholder="Tell us a bit about your project…"></textarea></div>
+            <div class="field full"><label for="f-msg" data-i18n="form.project">Project</label><textarea id="f-msg" name="message" rows="4" data-i18n-ph="form.projectPh" placeholder="Tell us a bit about your project…"></textarea></div>
             <div class="form-foot full">
-              <button type="submit" class="btn btn-primary magnetic">Send signal
+              <button type="submit" class="btn btn-primary magnetic"><span data-i18n="form.send">Send signal</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
-              <span class="form-note" id="form-note">Demo form — not connected yet.</span>
+              <span class="form-note" id="form-note" data-i18n="form.note">Demo form — not connected yet.</span>
             </div>
           </form>
         </div>
@@ -471,44 +498,42 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="#top" class="logo">
-            <span class="logo-mark" aria-hidden="true">
-              <i style="--c:#ff8a1f" class="s"></i><i style="--c:#ff8a1f"></i><i style="--c:#22c55e" class="s"></i><i style="--c:#2f7bff"></i>
-              <i style="--c:#2f7bff" class="s"></i><i style="--c:#22c55e"></i><i style="--c:#c07a45" class="s"></i><i style="--c:#c07a45"></i>
-            </span>
-            <span class="logo-word">NEXLINK<small>IT Solutions</small></span>
+          <a href="#top" class="logo" aria-label="HyperLink">
+            <svg class="logo-mark" aria-hidden="true"><use href="#hl-mark"/></svg>
+            <span class="logo-word">hyperlink<small data-i18n="brand.tagline">Integrated IT solutions</small></span>
           </a>
-          <p>Placeholder tagline — infrastructure that just works, so your team can focus on the business.</p>
+          <p data-i18n="footer.tagline">IT infrastructure, ISO consulting and integrated solutions — built to keep your business connected.</p>
         </div>
         <div class="footer-cols">
-          <div><h4>Solutions</h4><a href="#solutions">Networks</a><a href="#solutions">Cabling</a><a href="#solutions">Cloud</a><a href="#solutions">Security</a></div>
-          <div><h4>Company</h4><a href="#process">Process</a><a href="#projects">Projects</a><a href="#contact">Careers</a><a href="#contact">Contact</a></div>
-          <div><h4>Social</h4><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">X / Twitter</a></div>
+          <div><h4 data-i18n="nav.solutions">Solutions</h4><a href="#solutions" data-i18n="footer.networks">Networks</a><a href="#solutions" data-i18n="footer.cabling">Cabling</a><a href="#solutions" data-i18n="footer.security">Security</a><a href="#solutions" data-i18n="band.4">ISO consulting</a></div>
+          <div><h4 data-i18n="footer.company">Company</h4><a href="#process" data-i18n="nav.process">Process</a><a href="#projects" data-i18n="nav.projects">Projects</a><a href="#contact" data-i18n="footer.careers">Careers</a><a href="#contact" data-i18n="nav.contact">Contact</a></div>
+          <div><h4 data-i18n="footer.social">Social</h4><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">X / Twitter</a></div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span id="year">2026</span> NEXLINK — placeholder. All rights reserved.</span>
-        <span class="mono">T568B · 1 2 3 4 5 6 7 8</span>
+        <span>© <span id="year">2026</span> HyperLink. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <span class="mono">IT INFRASTRUCTURE | ISO &amp; CONSULTING | INTEGRATED SOLUTIONS</span>
       </div>
     </div>
   </footer>
 
   <aside class="hud" aria-hidden="true">
-    <div><span>Cable</span><b id="hud-len">0.00 m</b></div>
-    <div><span>Link</span><b><i class="led"></i><span data-link-text>Down</span></b></div>
+    <div><span data-i18n="hud.cable">Cable</span><b id="hud-len">0.00 m</b></div>
+    <div><span data-i18n="hud.link">Link</span><b><i class="led"></i><span data-link-short>Down</span></b></div>
   </aside>
 
   <!-- mobile action bar -->
   <div class="m-cta" id="m-cta">
-    <a href="tel:+000000000" class="m-cta-call" aria-label="Call us">
+    <a href="tel:+000000000" class="m-cta-call" data-i18n-aria="cta.call" aria-label="Call us">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
     </a>
-    <a href="#contact" class="btn btn-primary m-cta-main">Get a quote
+    <a href="#contact" class="btn btn-primary m-cta-main"><span data-i18n="cta.quote">Get a quote</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
-    <span class="m-cta-len" aria-hidden="true"><b data-hud-len>0.00 m</b><span>cable</span></span>
+    <span class="m-cta-len" aria-hidden="true"><b data-hud-len>0.00 m</b><span data-i18n="hud.cable">Cable</span></span>
   </div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/cable.js"></script>
   <script src="js/main.js"></script>
 </body>
