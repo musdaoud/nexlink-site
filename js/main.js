@@ -261,12 +261,6 @@
     }
   });
 
-  // "Request a quote" on a pillar pre-selects that pillar in the form
-  document.querySelectorAll('[data-service]').forEach(btn => btn.addEventListener('click', () => {
-    const select = form.elements.service;
-    if (select) select.value = btn.dataset.service;
-  }));
-
   /* HUD steps aside for the footer */
   const hud = document.querySelector('.hud');
   const footer = document.querySelector('.footer');
