@@ -224,6 +224,11 @@
     el.addEventListener('input', () => { if (el.closest('.field').classList.contains('has-error')) check(name); });
   });
 
+  // pillar / equipment CTAs open the form with the matching "type of need" selected
+  document.querySelectorAll('[data-need]').forEach(btn => btn.addEventListener('click', () => {
+    form.elements.need.value = btn.dataset.need;
+  }));
+
   const site = window.HL_SITE || {};
   const submitBtn = form.querySelector('button[type="submit"]');
   const submitLabel = submitBtn.querySelector('[data-i18n]');

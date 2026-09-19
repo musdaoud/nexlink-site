@@ -423,6 +423,8 @@ html[lang="fr"] .hero-title { font-size: clamp(2.1rem, 10.6cqi, 6rem); }
 .equip > .node { left: calc(var(--lane-x) - var(--lane-gap)); top: 38px; }
 .equip-head h3 { margin: 10px 0 6px; font-size: 22px; letter-spacing: -.02em; font-weight: 600; }
 .equip-head p:not(.pillar-num) { margin: 0; color: var(--muted); font-size: 14.5px; }
+.equip-cta { margin-top: 16px; }
+.pillar-cta { margin-top: 0; }
 .equip-ports { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .equip-ports li {
   display: flex; align-items: center; gap: 9px; padding: 8px 12px 8px 9px; border-radius: 10px;
@@ -822,6 +824,7 @@ html[lang="fr"] .hero-title { font-size: clamp(2.1rem, 10.6cqi, 6rem); }
 }
 
 @media (max-width: 640px) {
+  .pillar-cta, .equip-cta { max-width: 100%; height: auto; min-height: 48px; padding-block: 12px; white-space: normal; text-align: left; line-height: 1.3; }
   .sub-grid, .sub-grid--2, .modes { grid-template-columns: 1fr; }
   .ref-grid { grid-template-columns: repeat(2, 1fr); gap: 12px 8px; }
   .panel { padding: 12px 10px 16px; }

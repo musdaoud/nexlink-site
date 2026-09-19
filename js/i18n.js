@@ -37,6 +37,10 @@
       'mm.equip': 'IT equipment',
       'cta.contact': 'Contact us',
       'cta.call': 'Call us',
+      'cta.infra': 'Request an infrastructure study',
+      'cta.soft': 'Present my software needs',
+      'cta.iso': 'Present my consulting needs',
+      'cta.equip': 'Tell us your equipment needs',
 
       'link.down': 'Link down',
       'link.up': '10G up',
@@ -279,6 +283,10 @@
       'mm.equip': 'Équipements IT',
       'cta.contact': 'Nous contacter',
       'cta.call': 'Nous appeler',
+      'cta.infra': 'Demander une étude infrastructure',
+      'cta.soft': 'Présenter mon besoin logiciel',
+      'cta.iso': 'Présenter mon besoin en conseil',
+      'cta.equip': 'Exprimer un besoin en équipements',
 
       'link.down': 'Lien coupé',
       'link.up': '10G actif',
