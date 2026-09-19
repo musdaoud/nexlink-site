@@ -183,8 +183,14 @@
       'value.5': 'Continuity',
 
       'refs.title': 'They have<br><span class="grad">trusted us.</span>',
-      'refs.lead': 'Professional references and experience.',
+      'refs.lead': 'Every reference is a connection that helped build HyperLink — and each one matters.',
       'refs.malls': 'Various shopping complexes',
+      'refs.mallsShort': 'Shopping centres',
+      'refs.hospitalShort': 'Sidi Abdellah',
+      'refs.connected': 'references connected',
+      'refs.freeTitle': 'Your company?',
+      'refs.freeText': 'Become our next connection\u00A0→',
+      'refs.note': 'Professional references and experience',
 
       'baseline.1': 'Connected solutions',
       'baseline.2': 'Digital future',
@@ -419,8 +425,14 @@
       'value.5': 'Continuité',
 
       'refs.title': 'Ils nous ont<br><span class="grad">fait confiance.</span>',
-      'refs.lead': 'Références et expériences professionnelles.',
+      'refs.lead': 'Chaque référence est une connexion qui a contribué à construire HyperLink — et chacune compte.',
       'refs.malls': 'Divers complexes commerciaux',
+      'refs.mallsShort': 'Complexes',
+      'refs.hospitalShort': 'Sidi Abdellah',
+      'refs.connected': 'références connectées',
+      'refs.freeTitle': 'Votre entreprise ?',
+      'refs.freeText': 'Devenez notre prochaine connexion\u00A0→',
+      'refs.note': 'Références et expériences professionnelles',
 
       'baseline.1': 'Solutions connectées',
       'baseline.2': 'Avenir digital',

@@ -502,28 +502,112 @@
       </div>
     </section>
 
-    <!-- ============ REFERENCES (names only, as validated by the client — no logos without permission) ============ -->
+    <!-- ============ REFERENCES — patch panel: every reference is plugged into HyperLink ============ -->
     <section class="section references" id="references">
       <div class="container laned-r">
         <span class="cable-pt node r" data-scope=".references"><i class="led"></i></span>
-        <div class="section-head reveal">
-          <p class="port-tag"><b>Port 04</b> <span data-i18n="nav.references">References</span></p>
-          <h2 data-i18n-html="refs.title">They have<br><span class="grad">trusted us.</span></h2>
-          <p data-i18n="refs.lead">Professional references and experience.</p>
+        <div class="refs-head">
+          <div class="section-head reveal">
+            <p class="port-tag"><b>Port 04</b> <span data-i18n="nav.references">References</span></p>
+            <h2 data-i18n-html="refs.title">They have<br><span class="grad">trusted us.</span></h2>
+            <p data-i18n="refs.lead">Every reference is a connection that helped build HyperLink.</p>
+          </div>
+          <div class="refs-counter reveal" style="--d:.1s">
+            <b><span data-ref-count>00</span><small>/11</small></b>
+            <span data-i18n="refs.connected">references connected</span>
+          </div>
         </div>
-        <ol class="ref-grid">
-          <li class="ref reveal"><span class="ref-n">01</span><span class="ref-name">SARL CSM</span></li>
-          <li class="ref reveal" style="--d:.04s"><span class="ref-n">02</span><span class="ref-name">SARL PRODIAG</span></li>
-          <li class="ref reveal" style="--d:.08s"><span class="ref-n">03</span><span class="ref-name">Centre Militaire de l’Ingénierie et du Développement des Infrastructures (CMIDI)</span></li>
-          <li class="ref reveal"><span class="ref-n">04</span><span class="ref-name">Hôpital des Maladies Cardiaques et Chirurgie Cardiaque Pédiatrique de Sidi Abdellah</span></li>
-          <li class="ref reveal" style="--d:.04s"><span class="ref-n">05</span><span class="ref-name">SARL DULCESOL</span></li>
-          <li class="ref reveal" style="--d:.08s"><span class="ref-n">06</span><span class="ref-name" data-i18n="refs.malls">Various shopping complexes</span></li>
-          <li class="ref reveal"><span class="ref-n">07</span><span class="ref-name">EURL HACTEL</span></li>
-          <li class="ref reveal" style="--d:.04s"><span class="ref-n">08</span><span class="ref-name">Sonatrach</span></li>
-          <li class="ref reveal" style="--d:.08s"><span class="ref-n">09</span><span class="ref-name">CMF Algérie</span></li>
-          <li class="ref reveal"><span class="ref-n">10</span><span class="ref-name">CFEA</span></li>
-          <li class="ref reveal" style="--d:.04s"><span class="ref-n">11</span><span class="ref-name">SEMA — Métro d’Alger</span></li>
-        </ol>
+
+        <div class="panel">
+          <div class="panel-rail" aria-hidden="true"><i></i><span>HL-PATCH-01 · 12 PORTS · CAT6A</span><i></i></div>
+          <ol class="ref-grid">
+            <li class="ref striped" style="--w:#ff8a1f">
+              <span class="ref-n">P01</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><span class="ref-mark">CSM<small>SARL</small></span></div>
+              <p class="ref-name">SARL CSM</p>
+            </li>
+            <li class="ref" style="--w:#ff8a1f">
+              <span class="ref-n">P02</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><span class="ref-mark">PRODIAG<small>SARL</small></span></div>
+              <p class="ref-name">SARL PRODIAG</p>
+            </li>
+            <li class="ref striped" style="--w:#22c55e">
+              <span class="ref-n">P03</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><span class="ref-mark">CMIDI</span></div>
+              <p class="ref-name">Centre Militaire de l’Ingénierie et du Développement des Infrastructures (CMIDI)</p>
+            </li>
+            <li class="ref" style="--w:#2f7bff">
+              <span class="ref-n">P04</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><span class="ref-mark ref-mark--icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/><path d="M5.5 12.5h3l1.5-2.5 2 5 1.5-2.5h5"/></svg><small data-i18n="refs.hospitalShort">Sidi Abdellah</small></span></div>
+              <p class="ref-name">Hôpital des Maladies Cardiaques et Chirurgie Cardiaque Pédiatrique de Sidi Abdellah</p>
+            </li>
+            <li class="ref striped" style="--w:#2f7bff">
+              <span class="ref-n">P05</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><img src="assets/refs/dulcesol.png" alt="Dulcesol" loading="lazy"></div>
+              <p class="ref-name">SARL DULCESOL</p>
+            </li>
+            <li class="ref" style="--w:#22c55e">
+              <span class="ref-n">P06</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><span class="ref-mark ref-mark--icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9 5 4h14l1.5 5"/><path d="M3.5 9a2.8 2.8 0 0 0 5.7 0 2.8 2.8 0 0 0 5.6 0 2.8 2.8 0 0 0 5.7 0"/><path d="M5 11.5V20h14v-8.5M10 20v-5h4v5"/></svg><small data-i18n="refs.mallsShort">Complexes</small></span></div>
+              <p class="ref-name" data-i18n="refs.malls">Various shopping complexes</p>
+            </li>
+            <li class="ref striped" style="--w:#b8743f">
+              <span class="ref-n">P07</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><img src="assets/refs/hactel.png" alt="HACTEL" loading="lazy"></div>
+              <p class="ref-name">EURL HACTEL</p>
+            </li>
+            <li class="ref" style="--w:#b8743f">
+              <span class="ref-n">P08</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><img src="assets/refs/sonatrach.svg" alt="Sonatrach" class="tall" loading="lazy"></div>
+              <p class="ref-name">Sonatrach</p>
+            </li>
+            <li class="ref striped" style="--w:#ff8a1f">
+              <span class="ref-n">P09</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><span class="ref-mark">CMF<small>Algérie</small></span></div>
+              <p class="ref-name">CMF Algérie</p>
+            </li>
+            <li class="ref" style="--w:#ff8a1f">
+              <span class="ref-n">P10</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><span class="ref-mark">CFEA</span></div>
+              <p class="ref-name">CFEA</p>
+            </li>
+            <li class="ref striped" style="--w:#22c55e">
+              <span class="ref-n">P11</span>
+              <span class="ref-cord"></span><span class="ref-plug"></span><span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <div class="ref-plate"><img src="assets/refs/sema.webp" alt="SEMA — Société d’Exploitation du Métro d’Alger" loading="lazy"></div>
+              <p class="ref-name">SEMA — Métro d’Alger</p>
+            </li>
+            <li class="ref ref--free">
+              <span class="ref-n">P12</span>
+              <span class="ref-jack"></span>
+              <span class="ref-leds"><i></i><i></i></span>
+              <a class="ref-plate" href="#contact"><span class="ref-plus" aria-hidden="true">+</span><span data-i18n="refs.freeTitle">Your company?</span></a>
+              <p class="ref-name"><a href="#contact" data-i18n="refs.freeText">Become our next connection →</a></p>
+            </li>
+          </ol>
+          <p class="panel-foot" data-i18n="refs.note">Professional references and experience.</p>
+        </div>
         <span class="cable-pt r" style="bottom:-40px"></span>
       </div>
     </section>

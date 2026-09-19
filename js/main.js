@@ -68,6 +68,46 @@
   }, { threshold: .6 });
   document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
 
+  /* references patch panel: each reference is plugged in once the cable reaches the
+     section and the tile is on screen; scrolling back up above the section unplugs them */
+  const refs = document.querySelector('.references');
+  if (refs) {
+    const tiles = [...refs.querySelectorAll('.ref')];
+    const counter = refs.querySelector('[data-ref-count]');
+    // stagger by column so every row plugs in left → right
+    const setDelays = () => {
+      let rowTop = null, col = 0;
+      tiles.forEach(tile => {
+        if (tile.offsetTop !== rowTop) { rowTop = tile.offsetTop; col = 0; }
+        tile.style.setProperty('--d', `${reduced ? 0 : col * 0.14}s`);
+        col++;
+      });
+    };
+    setDelays();
+    window.addEventListener('resize', setDelays);
+
+    let shown = 0, countTimer = null;
+    const updateCount = () => {
+      const target = refs.classList.contains('is-live')
+        ? tiles.filter(tile => tile.classList.contains('in-view') && !tile.classList.contains('ref--free')).length
+        : 0;
+      clearInterval(countTimer);
+      const step = () => {
+        if (shown === target) return clearInterval(countTimer);
+        shown += shown < target ? 1 : -1;
+        counter.textContent = String(shown).padStart(2, '0');
+      };
+      if (reduced) { shown = target; counter.textContent = String(shown).padStart(2, '0'); }
+      else countTimer = setInterval(step, 110);
+    };
+    const tileIO = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); tileIO.unobserve(e.target); } });
+      updateCount();
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.4 });
+    tiles.forEach(tile => tileIO.observe(tile));
+    new MutationObserver(updateCount).observe(refs, { attributes: true, attributeFilter: ['class'] });
+  }
+
   /* card spotlight follows the pointer */
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('pointermove', e => {
