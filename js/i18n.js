@@ -173,8 +173,9 @@
       'p5.text': 'Training, maintenance, support and evolution over time.',
 
       'about.statement': 'Connect today,<br><span class="grad">enable tomorrow.</span>',
-      'about.diagramCaption': 'One partner, four connected areas of expertise.',
-      'about.diagramAlt': 'Infrastructure, software, equipment and consulting connected by HyperLink',
+      'about.fact1': 'areas of expertise',
+      'about.fact2': 'professional references',
+      'about.fact3': 'single point of contact',
       'about.vision': 'HyperLink supports businesses and organisations in their technology projects and their digital transformation. Our role: bringing infrastructure, software, IT equipment and consulting together into one coherent solution — so that today’s systems carry tomorrow’s uses.',
       'about.whyTitle': 'Why HyperLink?',
       'about.why1': 'A single point of contact, from the first study to ongoing support.',
@@ -421,8 +422,9 @@
       'p5.text': 'Formation, maintenance, support et évolution dans la durée.',
 
       'about.statement': 'Connecter aujourd’hui,<br><span class="grad">rendre possible demain.</span>',
-      'about.diagramCaption': 'Un seul partenaire, quatre expertises reliées.',
-      'about.diagramAlt': 'Infrastructure, logiciels, équipements et conseil reliés par HyperLink',
+      'about.fact1': 'domaines d’expertise',
+      'about.fact2': 'références professionnelles',
+      'about.fact3': 'interlocuteur unique',
       'about.vision': 'HyperLink accompagne les entreprises et les organisations dans leurs projets technologiques et leur transformation numérique. Notre rôle : intégrer l’infrastructure, les logiciels, les équipements IT et le conseil en une solution cohérente — pour que vos systèmes d’aujourd’hui portent vos usages de demain.',
       'about.whyTitle': 'Pourquoi HyperLink ?',
       'about.why1': 'Un interlocuteur unique, de l’étude jusqu’à l’accompagnement.',
