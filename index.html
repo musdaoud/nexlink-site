@@ -482,33 +482,83 @@
       </div>
     </section>
 
-    <!-- ============ ABOUT ============ -->
+    <!-- ============ ABOUT — the four expertises converging into HyperLink ============ -->
     <section class="section about" id="about">
       <div class="container laned-r">
         <span class="cable-pt node r" data-scope=".about"><i class="led"></i></span>
-        <span class="cable-pt r" style="top:260px"></span>
+        <span class="cable-pt r" style="top:320px"></span>
+
+        <div class="about-head reveal">
+          <p class="port-tag"><b>Port 03</b> <span data-i18n="nav.about">About</span></p>
+          <h2 class="about-statement" data-i18n-html="about.statement">Connect today,<br><span class="grad">enable tomorrow.</span></h2>
+          <p class="about-lead" data-i18n="about.vision">HyperLink is a technology company that supports businesses and organisations in their technology projects and digital transformation.</p>
+        </div>
+
         <div class="about-grid">
-          <div class="about-main reveal">
-            <p class="port-tag"><b>Port 03</b> <span data-i18n="nav.about">About</span></p>
-            <h2 data-i18n-html="about.title">Connecting infrastructure,<br><span class="grad">software and consulting.</span></h2>
-            <p class="about-lead" data-i18n="about.vision">HyperLink is a technology company that supports businesses and organisations in their technology projects and digital transformation.</p>
-            <h3 class="about-sub" data-i18n="about.whyTitle">Why HyperLink?</h3>
-            <ul class="why-list">
+          <!-- convergence diagram: four expertises → one partner -->
+          <figure class="hub">
+            <svg class="hub-svg" viewBox="0 0 440 360" role="img" aria-labelledby="hub-title">
+              <title id="hub-title" data-i18n="about.diagramAlt">Infrastructure, software, equipment and consulting connected by HyperLink</title>
+              <g class="hub-links">
+                <path pathLength="1" d="M104 96C150 124 168 140 186 156"/>
+                <path pathLength="1" d="M336 96C290 124 272 140 254 156"/>
+                <path pathLength="1" d="M104 264C150 236 168 220 186 204"/>
+                <path pathLength="1" d="M336 264C290 236 272 220 254 204"/>
+              </g>
+              <g class="hub-pulses">
+                <path d="M104 96C150 124 168 140 186 156"/>
+                <path d="M336 96C290 124 272 140 254 156" style="--i:1"/>
+                <path d="M104 264C150 236 168 220 186 204" style="--i:2"/>
+                <path d="M336 264C290 236 272 220 254 204" style="--i:3"/>
+              </g>
+              <circle class="hub-ring" cx="220" cy="180" r="92"/>
+              <circle class="hub-core" cx="220" cy="180" r="58"/>
+              <use class="hub-mark" href="#hl-mark" x="182" y="156" width="76" height="49"/>
+              <g class="hub-nodes">
+                <g transform="translate(76 76)">
+                  <circle r="34"/>
+                  <path transform="translate(-11 -18)" d="M11 2.5a2.4 2.4 0 1 1 0 4.8 2.4 2.4 0 0 1 0-4.8M4 16.5a2.4 2.4 0 1 1 0 4.8 2.4 2.4 0 0 1 0-4.8M18 16.5a2.4 2.4 0 1 1 0 4.8 2.4 2.4 0 0 1 0-4.8M11 7.3v3.4M11 10.7 5.6 15.6M11 10.7l5.4 4.9"/>
+                  <text y="52" data-i18n="mm.infra">Infrastructure</text>
+                </g>
+                <g transform="translate(364 76)">
+                  <circle r="34"/>
+                  <path transform="translate(-11 -11)" d="m7 6-5 5 5 5M15 6l5 5-5 5M12.6 3.4 9.4 18.6"/>
+                  <text y="52" data-i18n="mm.soft">Software</text>
+                </g>
+                <g transform="translate(76 284)">
+                  <circle r="34"/>
+                  <path transform="translate(-11 -11)" d="M2.5 3.5h17v6h-17zM2.5 12.5h17v6h-17zM5.5 6h.01M5.5 15h.01M9 6h5M9 15h5"/>
+                  <text y="52" data-i18n="mm.equip">IT equipment</text>
+                </g>
+                <g transform="translate(364 284)">
+                  <circle r="34"/>
+                  <path transform="translate(-11 -11)" d="M11 2.4 4.2 5.1v5c0 4.2 2.9 7.6 6.8 8.6 3.9-1 6.8-4.4 6.8-8.6v-5z"/>
+                  <path transform="translate(-11 -11)" d="m8.3 10.8 1.8 1.8 3.6-3.6"/>
+                  <text y="52" data-i18n="mm.iso">Consulting &amp; ISO</text>
+                </g>
+              </g>
+            </svg>
+            <figcaption data-i18n="about.diagramCaption">One partner, four connected areas of expertise.</figcaption>
+          </figure>
+
+          <div class="about-side">
+            <h3 class="about-sub reveal" data-i18n="about.whyTitle">Why HyperLink?</h3>
+            <ol class="why-list reveal" style="--d:.06s">
               <li data-i18n="about.why1">A single point of contact, from the first study to ongoing support.</li>
               <li data-i18n="about.why2">An integrated approach: infrastructure, software, equipment and consulting.</li>
               <li data-i18n="about.why3">Solutions fitted to your business — custom-built or Open Source.</li>
               <li data-i18n="about.why4">Local expertise and close, hands-on support.</li>
-            </ul>
-          </div>
-          <div class="values reveal" style="--d:.1s">
-            <p class="values-label" data-i18n="about.valuesTitle">Our values</p>
-            <ul class="values-list">
-              <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 11a3 3 0 1 0 0-6M21 20c0-2.6-1.6-4.8-4-5.6"/></svg></span><b data-i18n="value.1">Proximity</b></li>
-              <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><b data-i18n="value.2">Reliability</b></li>
-              <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5M10 10h4v4h-4z"/></svg></span><b data-i18n="value.3">Expertise</b></li>
-              <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6L12 3z"/><rect x="9" y="11" width="6" height="4.5" rx="1"/><path d="M10.2 11V9.6a1.8 1.8 0 0 1 3.6 0V11"/></svg></span><b data-i18n="value.4">Security</b></li>
-              <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8.5a3.5 3.5 0 1 0 0 7c2.5 0 3.5-2 5.5-3.5s3-3.5 5.5-3.5a3.5 3.5 0 1 1 0 7c-2.5 0-3.5-2-5.5-3.5S9 8.5 6.5 8.5z"/></svg></span><b data-i18n="value.5">Continuity</b></li>
-            </ul>
+            </ol>
+            <div class="values reveal" style="--d:.12s">
+              <p class="values-label" data-i18n="about.valuesTitle">Our values</p>
+              <ul class="values-list">
+                <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 11a3 3 0 1 0 0-6M21 20c0-2.6-1.6-4.8-4-5.6"/></svg></span><b data-i18n="value.1">Proximity</b></li>
+                <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><b data-i18n="value.2">Reliability</b></li>
+                <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5M10 10h4v4h-4z"/></svg></span><b data-i18n="value.3">Expertise</b></li>
+                <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6L12 3z"/><rect x="9" y="11" width="6" height="4.5" rx="1"/><path d="M10.2 11V9.6a1.8 1.8 0 0 1 3.6 0V11"/></svg></span><b data-i18n="value.4">Security</b></li>
+                <li><span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8.5a3.5 3.5 0 1 0 0 7c2.5 0 3.5-2 5.5-3.5s3-3.5 5.5-3.5a3.5 3.5 0 1 1 0 7c-2.5 0-3.5-2-5.5-3.5S9 8.5 6.5 8.5z"/></svg></span><b data-i18n="value.5">Continuity</b></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
