@@ -682,6 +682,7 @@ html[lang="fr"] .hero-title { font-size: clamp(2.1rem, 10.6cqi, 6rem); }
    Responsive
    ========================================================================== */
 @media (max-width: 1320px) {
+  .sub-grid { grid-template-columns: repeat(2, 1fr); }
   .nav .logo-word small { display: none; }
   .cp-h0 { left: 80%; }
   .cp-h1 { left: 77%; }
