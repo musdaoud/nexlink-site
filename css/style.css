@@ -82,8 +82,8 @@ h1, h2, h3, .logo-word, .band-item, .sw-status, .mobile-menu nav a, .hero-specs 
 }
 .bg::after {
   content: ""; position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(140, 190, 235, .14) 1px, transparent 1.3px);
-  background-size: 28px 28px;
+  background-image: radial-gradient(rgba(140, 190, 235, .09) 1px, transparent 1.3px);
+  background-size: 34px 34px;
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 10%, transparent 80%);
           mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 10%, transparent 80%);
 }
@@ -455,17 +455,7 @@ html[lang="fr"] .hero-title { font-size: clamp(2.1rem, 10.6cqi, 6rem); }
 .hub {
   position: relative; margin: 0; padding: 18px 18px 22px; border-radius: 26px; overflow: hidden;
   border: 1px solid var(--line-2);
-  background:
-    radial-gradient(70% 60% at 50% 45%, rgba(0, 240, 255, .1), transparent 70%),
-    linear-gradient(180deg, rgba(19, 40, 72, .65), rgba(9, 22, 44, .6));
-}
-/* data-flow pattern from the brand board, kept very low contrast */
-.hub::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image: repeating-linear-gradient(45deg, rgba(0, 240, 255, .07) 0 1px, transparent 1px 22px),
-                    repeating-linear-gradient(-45deg, rgba(30, 107, 255, .07) 0 1px, transparent 1px 22px);
-  -webkit-mask-image: radial-gradient(80% 70% at 50% 50%, transparent 30%, #000 90%);
-          mask-image: radial-gradient(80% 70% at 50% 50%, transparent 30%, #000 90%);
+  background: linear-gradient(180deg, rgba(16, 34, 62, .55), rgba(9, 22, 44, .5));
 }
 .hub-svg { position: relative; width: 100%; height: auto; }
 .hub figcaption { position: relative; margin-top: 6px; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
@@ -474,18 +464,16 @@ html[lang="fr"] .hero-title { font-size: clamp(2.1rem, 10.6cqi, 6rem); }
 .hub-links path:nth-child(2) { transition-delay: .12s; }
 .hub-links path:nth-child(3) { transition-delay: .24s; }
 .hub-links path:nth-child(4) { transition-delay: .36s; }
-.about.is-live .hub-links path { stroke-dashoffset: 0; }
+.about.is-live .hub-links path { stroke-dashoffset: 0; stroke: rgba(0, 240, 255, .35); }
 .hub-pulses path {
-  fill: none; stroke: var(--cyan); stroke-width: 2.4; stroke-linecap: round; opacity: 0;
-  stroke-dasharray: 10 180; filter: drop-shadow(0 0 4px rgba(0, 240, 255, .8));
+  fill: none; stroke: var(--cyan); stroke-width: 1.8; stroke-linecap: round; opacity: 0;
+  stroke-dasharray: 8 190;
 }
-.about.is-live .hub-pulses path { opacity: 1; animation: hub-flow 3s linear infinite; animation-delay: calc(1s + var(--i, 0) * .5s); }
+.about.is-live .hub-pulses path { opacity: .85; animation: hub-flow 4.5s linear infinite; animation-delay: calc(1s + var(--i, 0) * 1.1s); }
 @keyframes hub-flow { from { stroke-dashoffset: 190; } to { stroke-dashoffset: 0; } }
 
-.hub-ring { fill: none; stroke: rgba(0, 240, 255, .25); stroke-dasharray: 3 9; transform-origin: 220px 180px; }
-.about.is-live .hub-ring { animation: spin 42s linear infinite; }
-.hub-core { fill: rgba(5, 14, 30, .85); stroke: rgba(0, 240, 255, .45); stroke-width: 1.5; transition: stroke .8s, filter .8s; }
-.about.is-live .hub-core { stroke: var(--cyan); filter: drop-shadow(0 0 16px rgba(0, 240, 255, .45)); }
+.hub-core { fill: rgba(5, 14, 30, .75); stroke: rgba(140, 175, 220, .35); stroke-width: 1.3; transition: stroke .8s; }
+.about.is-live .hub-core { stroke: rgba(0, 240, 255, .6); }
 .hub-mark { opacity: .55; transition: opacity .8s .5s; }
 .about.is-live .hub-mark { opacity: 1; }
 
@@ -493,8 +481,7 @@ html[lang="fr"] .hero-title { font-size: clamp(2.1rem, 10.6cqi, 6rem); }
 .hub-nodes circle { fill: rgba(9, 22, 44, .9); stroke: rgba(140, 175, 220, .35); stroke-width: 1.4; transition: stroke .7s; }
 .hub-nodes path { fill: none; stroke: var(--platinum); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; transition: stroke .7s; }
 .hub-nodes text { fill: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; text-anchor: middle; transition: fill .7s; }
-.about.is-live .hub-nodes circle { stroke: rgba(0, 240, 255, .55); }
-.about.is-live .hub-nodes path { stroke: var(--cyan); }
+.about.is-live .hub-nodes circle { stroke: rgba(140, 175, 220, .5); }
 .about.is-live .hub-nodes text { fill: var(--text); }
 
 .about-sub { margin: 0 0 16px; font-size: 20px; letter-spacing: -.015em; font-weight: 600; }
