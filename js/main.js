@@ -147,6 +147,8 @@
 
   // Algerian numbers: mobile 05/06/07 + 8 digits, landline 02x/03x/04x + 7 digits; +213 / 00213 / 0 prefixes
   const isAlgerianPhone = v => /^(?:\+213|00213|0)(?:[567]\d{8}|[234]\d{7})$/.test(v.replace(/\(0\)/g, '').replace(/[\s.\-()]/g, ''));
+  const FILE_TYPES = /\.(pdf|docx?|xlsx?|jpe?g|png)$/i;
+  const FILE_MAX = 10 * 1024 * 1024;
   const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
 
   const rules = {
@@ -157,6 +159,11 @@
       : isAlgerianPhone(el.value)) || 'form.errPhone',
     email: el => !el.value.trim() || isEmail(el.value.trim()) || 'form.errEmail',
     consent: el => el.checked || 'form.errConsent',
+    attachment: el => {
+      const f = el.files[0];
+      if (!f) return true;
+      return (FILE_TYPES.test(f.name) && f.size <= FILE_MAX) || 'form.errFile';
+    },
   };
   const check = (name, show = true) => {
     const el = form.elements[name];
@@ -173,7 +180,7 @@
   };
   Object.keys(rules).forEach(name => {
     const el = form.elements[name];
-    el.addEventListener('blur', () => { if (el.type !== 'checkbox' && el.value) check(name); });
+    el.addEventListener('blur', () => { if (!['checkbox', 'file'].includes(el.type) && el.value) check(name); });
     el.addEventListener('input', () => { if (el.closest('.field').classList.contains('has-error')) check(name); });
   });
 
@@ -210,15 +217,26 @@
     document.head.appendChild(sc);
   }
 
+  const fileInput = form.elements.attachment;
+  const fileDrop = form.querySelector('.file-drop');
+  const fileText = form.querySelector('.file-text');
+  const renderFile = () => {
+    const f = fileInput.files[0];
+    fileDrop.classList.toggle('has-file', !!f);
+    fileText.textContent = f ? `${f.name} · ${(f.size / 1024 / 1024).toFixed(1)} ${document.documentElement.lang === 'fr' ? 'Mo' : 'MB'}` : t('form.fileHint');
+  };
+  fileInput.addEventListener('change', () => { renderFile(); check('attachment'); });
+  form.addEventListener('reset', () => setTimeout(renderFile));
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const results = Object.keys(rules).map(name => check(name));
     if (results.includes(false)) {
-      form.querySelector('.has-error input')?.focus();
+      form.querySelector('.has-error input:not([type="file"])')?.focus();
       return;
     }
-    const data = Object.fromEntries(new FormData(form));
-    if (data.website) return;                       // honeypot filled → silently drop (bot)
+    const body = new FormData(form);
+    if (body.get('website')) return;                // honeypot filled → silently drop (bot)
 
     if (!site.formEndpoint) {                       // demo mode: nothing is sent
       setNote('form.sent', 'ok');
@@ -226,15 +244,14 @@
       return;
     }
 
-    const payload = {
-      ...data,
-      consent: true,
-      lang: document.documentElement.lang,
-      page: location.href,
-      wilayaName: form.elements.wilaya.selectedOptions[0]?.textContent || '',
-      serviceName: form.elements.service.selectedOptions[0]?.textContent || '',
-    };
-    delete payload.website;
+    // multipart so the optional attachment travels with the request
+    body.delete('website');
+    if (!fileInput.files.length) body.delete('attachment');
+    body.set('consent', 'true');
+    body.set('lang', document.documentElement.lang);
+    body.set('page', location.href);
+    body.set('wilayaName', form.elements.wilaya.selectedOptions[0]?.textContent || '');
+    body.set('needName', form.elements.need.selectedOptions[0]?.textContent || '');
 
     form.classList.add('is-sending');
     submitLabel.textContent = t('form.sending');
@@ -243,8 +260,8 @@
     try {
       const res = await fetch(site.formEndpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { Accept: 'application/json' },
+        body,
         signal: ctrl.signal,
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -292,6 +309,7 @@
   window.addEventListener('i18n:change', () => {
     renderLinkTexts();
     renderNote();
+    renderFile();
     form.querySelectorAll('.field[data-err]').forEach(f => { if (f.dataset.err) f.querySelector('.field-err').textContent = t(f.dataset.err); });
     const burgerOpen = body.classList.contains('menu-open');
     burger.setAttribute('aria-expanded', String(burgerOpen));

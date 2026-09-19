@@ -10,7 +10,8 @@ window.HL_SITE = {
   email: 'contact@hyperlink.example',
 
   // Contact form backend — leave empty to keep the demo mode.
-  // The form POSTs JSON { name, company, phone, email, wilaya, service, message, consent, lang, page }.
+  // The form POSTs multipart/form-data: name, company, role, phone, email, wilaya(+Name), need(+Name),
+  // message, attachment (optional file, max 10 MB), consent, lang, page.
   formEndpoint: '',                        // e.g. '/api/contact' (Cloudflare Pages Function) or a form-service URL
   turnstileSiteKey: '',                    // Cloudflare Turnstile public key (anti-spam), optional
 };
