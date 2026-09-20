@@ -37,6 +37,9 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* anchors must land below the fixed nav, not under it */
+:target, section[id], .pillar[id], .equip[id] { scroll-margin-top: 96px; }
+.equip[id] { scroll-margin-top: 130px; }
 body {
   margin: 0;
   -webkit-tap-highlight-color: transparent;
