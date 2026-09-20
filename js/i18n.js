@@ -173,6 +173,7 @@
       'p5.text': 'Training, maintenance, support and evolution over time.',
 
       'about.statement': 'Connect today,<br><span class="grad">enable tomorrow.</span>',
+      'about.position': 'Our positioning: one partner integrating infrastructure, software, IT equipment and consulting — so each part fits the next.',
       'about.fact1': 'areas of expertise',
       'about.fact2': 'professional references',
       'about.fact3': 'single point of contact',
@@ -422,6 +423,7 @@
       'p5.text': 'Formation, maintenance, support et évolution dans la durée.',
 
       'about.statement': 'Connecter aujourd’hui,<br><span class="grad">rendre possible demain.</span>',
+      'about.position': 'Notre positionnement : un seul partenaire qui intègre l’infrastructure, les logiciels, les équipements IT et le conseil — pour que chaque brique s’emboîte avec la suivante.',
       'about.fact1': 'domaines d’expertise',
       'about.fact2': 'références professionnelles',
       'about.fact3': 'interlocuteur unique',
