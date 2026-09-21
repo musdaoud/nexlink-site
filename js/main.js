@@ -294,6 +294,25 @@
   fileInput.addEventListener('change', () => { renderFile(); check('attachment'); });
   form.addEventListener('reset', () => setTimeout(renderFile));
 
+  // errors returned by the backend: { field: { code, message } } — codes are i18n keys
+  const showServerErrors = errors => {
+    let first = null;
+    Object.entries(errors).forEach(([name, err]) => {
+      const el = form.elements[name];
+      const field = el?.closest?.('.field') || el?.[0]?.closest?.('.field');
+      const slot = field?.querySelector('.field-err');
+      if (!slot) return;
+      const text = t(err.code) !== err.code ? t(err.code) : err.message;
+      field.classList.add('has-error');
+      field.dataset.err = err.code;
+      slot.textContent = text;
+      if (el.setAttribute) el.setAttribute('aria-invalid', 'true');
+      first = first || el;
+    });
+    if (first?.focus) first.focus();
+    setNote('form.errFix', 'err');
+  };
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const results = Object.keys(rules).map(name => check(name));
@@ -330,6 +349,15 @@
         body,
         signal: ctrl.signal,
       });
+      const data = await res.json().catch(() => null);
+      if (res.status === 400 && data?.errors) {        // the server re-validated and found issues
+        showServerErrors(data.errors);
+        return;
+      }
+      if (!res.ok && data?.error?.startsWith('form.')) { // rate limit, anti-spam, too large
+        setNote(data.error, 'err');
+        return;
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setNote('form.sentReal', 'ok');
       form.reset();

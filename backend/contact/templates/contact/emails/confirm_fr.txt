@@ -1,0 +1,7 @@
+{% autoescape off %}Bonjour {{ r.name }},
+
+Merci pour votre message. Votre demande concernant « {{ need }} » a bien été reçue : notre équipe vous recontacte dans les meilleurs délais.
+
+— L’équipe HyperLink
+Solutions connectées • Avenir digital
+{% endautoescape %}

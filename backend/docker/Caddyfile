@@ -1,0 +1,18 @@
+# HTTPS certificate is obtained and renewed automatically for API_DOMAIN.
+{$API_DOMAIN} {
+	encode zstd gzip
+
+	# form fields + a 10 MB attachment
+	request_body {
+		max_size 12MB
+	}
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+
+	# attachments are never served directly — only through the Django admin
+	reverse_proxy web:8000
+}

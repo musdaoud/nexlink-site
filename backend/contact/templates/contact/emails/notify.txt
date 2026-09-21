@@ -1,0 +1,18 @@
+{% autoescape off %}Nouvelle demande de contact reçue sur le site HyperLink.
+
+Nom         : {{ r.name }}
+Société     : {{ r.company|default:"—" }}
+Fonction    : {{ r.role|default:"—" }}
+Téléphone   : {{ r.phone }}
+E-mail      : {{ r.email|default:"—" }}
+Wilaya      : {{ wilaya|default:"—" }}
+Besoin      : {{ need }}
+Langue      : {{ r.get_lang_display }}
+Pièce jointe: {{ r.attachment_name|default:"aucune" }}
+
+Message :
+{{ r.message|default:"(aucun message)" }}
+
+Voir et suivre la demande : {{ admin_url }}
+{% if r.email %}Répondre à cet e-mail répond directement au visiteur.{% endif %}
+{% endautoescape %}

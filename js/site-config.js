@@ -12,7 +12,9 @@ window.HL_SITE = {
   // Contact form backend — leave empty to keep the demo mode.
   // The form POSTs multipart/form-data: name, company, role, phone, email, wilaya(+Name), need(+Name),
   // message, attachment (optional file, max 10 MB), consent, lang, page.
-  formEndpoint: '',                        // e.g. '/api/contact' (Cloudflare Pages Function) or a form-service URL
+  // local testing (site opened on localhost) → the Docker backend; production → set the API URL,
+  // e.g. 'https://api.yourdomain.dz/api/contact/'. Empty = demo mode (nothing is sent).
+  formEndpoint: /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? 'http://localhost:8010/api/contact/' : '',
   turnstileSiteKey: '',                    // Cloudflare Turnstile public key (anti-spam), optional
 };
 

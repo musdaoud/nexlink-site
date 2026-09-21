@@ -706,15 +706,15 @@
 
           <form class="form reveal" id="contact-form" novalidate>
             <div class="field"><label for="f-name"><span data-i18n="form.name">Full name</span> <b class="req">*</b></label><input id="f-name" name="name" type="text" data-i18n-ph="form.namePh" placeholder="First and last name" autocomplete="name" required><small class="field-err" aria-live="polite"></small></div>
-            <div class="field"><label for="f-company" data-i18n="form.company">Company</label><input id="f-company" name="company" type="text" data-i18n-ph="form.companyPh" placeholder="Company name" autocomplete="organization"></div>
-            <div class="field"><label for="f-role"><span data-i18n="form.role">Job title</span> <em class="opt" data-i18n="form.optional">(optional)</em></label><input id="f-role" name="role" type="text" data-i18n-ph="form.rolePh" placeholder="e.g. IT manager" autocomplete="organization-title"></div>
+            <div class="field"><label for="f-company" data-i18n="form.company">Company</label><input id="f-company" name="company" type="text" data-i18n-ph="form.companyPh" placeholder="Company name" autocomplete="organization"><small class="field-err" aria-live="polite"></small></div>
+            <div class="field"><label for="f-role"><span data-i18n="form.role">Job title</span> <em class="opt" data-i18n="form.optional">(optional)</em></label><input id="f-role" name="role" type="text" data-i18n-ph="form.rolePh" placeholder="e.g. IT manager" autocomplete="organization-title"><small class="field-err" aria-live="polite"></small></div>
             <div class="field"><label for="f-phone"><span data-i18n="contact.phone">Phone</span> <b class="req">*</b></label><input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="05 55 12 34 56" autocomplete="tel" required><small class="field-err" aria-live="polite"></small></div>
             <div class="field"><label for="f-email" data-i18n="contact.email">Email</label><input id="f-email" name="email" type="email" data-i18n-ph="form.emailPh" placeholder="you@company.dz" autocomplete="email"><small class="field-err" aria-live="polite"></small></div>
             <div class="field"><label for="f-wilaya" data-i18n="form.wilaya">Wilaya</label>
               <select id="f-wilaya" name="wilaya" data-wilayas>
                 <option value="" data-i18n="form.wilayaPh">Select your wilaya…</option>
               </select>
-            </div>
+            <small class="field-err" aria-live="polite"></small></div>
             <div class="field full"><label for="f-need" data-i18n="form.need">Type of need</label>
               <select id="f-need" name="need">
                 <option value="infrastructure" data-i18n="need.infra">Infrastructure &amp; low-voltage</option>
@@ -725,8 +725,8 @@
                 <option value="hvac" data-i18n="need.hvac">HVAC</option>
                 <option value="other" data-i18n="need.other">Other</option>
               </select>
-            </div>
-            <div class="field full"><label for="f-msg" data-i18n="form.project">Message</label><textarea id="f-msg" name="message" rows="4" data-i18n-ph="form.projectPh" placeholder="Describe your need: site, scope, timeline…"></textarea></div>
+            <small class="field-err" aria-live="polite"></small></div>
+            <div class="field full"><label for="f-msg" data-i18n="form.project">Message</label><textarea id="f-msg" name="message" rows="4" data-i18n-ph="form.projectPh" placeholder="Describe your need: site, scope, timeline…"></textarea><small class="field-err" aria-live="polite"></small></div>
             <div class="field full">
               <span class="label-like"><span data-i18n="form.file">Attachment</span> <em class="opt" data-i18n="form.optional">(optional)</em></span>
               <input id="f-file" class="file-input" name="attachment" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png">
