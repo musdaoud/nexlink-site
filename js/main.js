@@ -31,6 +31,27 @@
     burger.setAttribute('aria-expanded', 'false');
   }));
 
+  /* light / dark theme */
+  const root = document.documentElement;
+  const themeBtn = document.querySelector('.theme-toggle');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const tr = key => (window.HL_I18N ? window.HL_I18N.t(key) : key);
+  const renderThemeBtn = () => {
+    const light = root.dataset.theme === 'light';
+    themeBtn.setAttribute('aria-label', tr(light ? 'theme.toDark' : 'theme.toLight'));
+    themeBtn.setAttribute('aria-pressed', String(light));
+    themeMeta.setAttribute('content', light ? '#F5F2EA' : '#0A192F');
+  };
+  themeBtn.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
+    try { localStorage.setItem('hl-theme', root.dataset.theme); } catch (e) {}
+    const url = new URL(location.href);
+    if (url.searchParams.has('theme')) { url.searchParams.set('theme', root.dataset.theme); history.replaceState(null, '', url); }
+    renderThemeBtn();
+  });
+  renderThemeBtn();
+  window.addEventListener('i18n:change', renderThemeBtn);
+
   /* reveal on scroll */
   const revealIO = new IntersectionObserver(entries => {
     entries.forEach(e => {

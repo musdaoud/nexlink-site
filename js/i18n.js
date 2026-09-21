@@ -18,6 +18,8 @@
       'meta.title': 'HyperLink — Your technology partner in Algeria',
       'meta.description': 'HyperLink designs, deploys and integrates infrastructure and low-voltage systems, software and ERP, IT equipment, consulting and ISO certification for businesses in Algeria.',
       'lang.label': 'Language',
+      'theme.toLight': 'Switch to light mode',
+      'theme.toDark': 'Switch to dark mode',
       'brand.tagline': 'Connected solutions • Digital future',
 
       'nav.main': 'Main',
@@ -268,6 +270,8 @@
       'meta.title': 'HyperLink — Votre partenaire technologique en Algérie',
       'meta.description': 'HyperLink conçoit, déploie et intègre infrastructures et courant faible, logiciels et ERP, équipements IT, conseil et certification ISO pour les entreprises en Algérie.',
       'lang.label': 'Langue',
+      'theme.toLight': 'Passer en mode clair',
+      'theme.toDark': 'Passer en mode sombre',
       'brand.tagline': 'Solutions connectées • Avenir digital',
 
       'nav.main': 'Navigation principale',

@@ -277,7 +277,10 @@
     }
   }
 
+  let light = false;
+
   function draw(sy, splay, prog, dt) {
+    light = document.documentElement.dataset.theme === 'light';
     ctx.setTransform(dpr, 0, 0, dpr, 0, -sy * dpr);
     ctx.clearRect(0, sy, vw, vh);
 
@@ -350,9 +353,9 @@
       for (let j = 0; j <= jm; j++) { const h = 4.2 * U * CF[j]; ctx.lineTo(CX[j] + CNX[j] * h, CY[j] + CNY[j] * h); }
       for (let j = jm; j >= 0; j--) { const h = 4.2 * U * CF[j]; ctx.lineTo(CX[j] - CNX[j] * h, CY[j] - CNY[j] * h); }
       ctx.closePath();
-      ctx.fillStyle = `rgba(0,150,255,${.14 * jacketA})`;
+      ctx.fillStyle = light ? `rgba(30,107,255,${.1 * jacketA})` : `rgba(0,150,255,${.14 * jacketA})`;
       ctx.fill();
-      ctx.strokeStyle = `rgba(120,225,255,${.32 * jacketA})`;
+      ctx.strokeStyle = light ? `rgba(10,25,47,${.3 * jacketA})` : `rgba(120,225,255,${.32 * jacketA})`;
       ctx.lineWidth = 1;
       ctx.stroke();
     }
@@ -379,14 +382,14 @@
     if (jacketA > 0 && jm > 1) {
       ctx.beginPath();
       for (let j = 0; j <= jm; j++) { const h = -3.1 * U * CF[j]; ctx.lineTo(CX[j] + CNX[j] * h, CY[j] + CNY[j] * h); }
-      ctx.strokeStyle = `rgba(255,255,255,${.16 * jacketA})`;
+      ctx.strokeStyle = light ? `rgba(255,255,255,${.7 * jacketA})` : `rgba(255,255,255,${.16 * jacketA})`;
       ctx.lineWidth = 1.4;
       ctx.stroke();
     }
 
     /* intro: glowing heads on the falling wires */
     if (prog) {
-      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalCompositeOperation = light ? 'source-over' : 'lighter';
       for (let i = 0; i < 8; i++) {
         if (prog[i] >= 1 || prog[i] <= 0) continue;
         const lim = tip * prog[i];
@@ -403,7 +406,7 @@
         spawnIn = (vw < 900 ? .4 : .18) + Math.random() * .4;
         packets.push({ s: CS[0], v: 650 + Math.random() * 600, c: PACKET_COLORS[(Math.random() * 4) | 0], lane: (Math.random() * 2 - 1) * 2.4 });
       }
-      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalCompositeOperation = light ? 'source-over' : 'lighter';
       const endS = tip - straight;
       for (let p = packets.length - 1; p >= 0; p--) {
         const pk = packets[p];
@@ -416,7 +419,7 @@
         for (let t = 0; t < 5; t++) {
           const q = Math.max(0, lo - t * 3);
           const h = pk.lane * u;
-          glow(CX[q] + CNX[q] * h, CY[q] + CNY[q] * h, (t ? 5 : 9) * CF[q], pk.c, (t ? .35 - t * .06 : .95) * fade);
+          glow(CX[q] + CNX[q] * h, CY[q] + CNY[q] * h, (t ? 5 : 9) * CF[q], light && pk.c === '#ffffff' ? '#0A192F' : pk.c, (t ? .35 - t * .06 : .95) * fade);
         }
       }
       ctx.globalCompositeOperation = 'source-over';
@@ -429,6 +432,11 @@
     ctx.beginPath();
     ctx.moveTo(X[a], Y[a]);
     for (let j = a + 1; j <= b; j++) ctx.lineTo(X[j], Y[j]);
+    if (light) {                       // thin navy outline: white wires vanish on cream otherwise
+      ctx.lineWidth = u * .96 + 1.6;
+      ctx.strokeStyle = pass ? 'rgba(10,25,47,.5)' : 'rgba(10,25,47,.32)';
+      ctx.stroke();
+    }
     ctx.lineWidth = u * .96;
     ctx.strokeStyle = pass ? w.base : w.baseDark;
     ctx.stroke();
@@ -447,7 +455,7 @@
   function glow(x, y, r, color, a) {
     if (a <= 0) return;
     const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-    g.addColorStop(0, `rgba(255,255,255,${a})`);
+    g.addColorStop(0, light ? hexA(color, a) : `rgba(255,255,255,${a})`);
     g.addColorStop(.25, hexA(color, a * .9));
     g.addColorStop(1, hexA(color, 0));
     ctx.fillStyle = g;
