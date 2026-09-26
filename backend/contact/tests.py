@@ -64,7 +64,7 @@ class ContactApiTests(TestCase):
         notify, confirm = mail.outbox
         self.assertEqual(notify.to, ["team@example.com"])
         self.assertEqual(notify.reply_to, ["karim@example.dz"])
-        self.assertIn("Conformité ANPDP", notify.subject)
+        self.assertIn("Conformité Loi 18-07", notify.subject)
         self.assertIn(f"https://api.example.dz/gestion/contact/contactrequest/{obj.pk}/change/", notify.body)
         self.assertEqual(confirm.to, ["karim@example.dz"])
         self.assertIn("bien été reçue", confirm.subject)

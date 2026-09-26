@@ -42,7 +42,7 @@ class ContactRequest(models.Model):
         SOFTWARE = "software", "Logiciel / ERP"
         EQUIPMENT = "equipment", "Équipements IT"
         ISO = "iso", "ISO & Consulting"
-        ANPDP = "anpdp", "Conformité ANPDP"
+        ANPDP = "anpdp", "Conformité Loi 18-07"
         HVAC = "hvac", "HVAC-CVC"
         OTHER = "other", "Autre"
 
