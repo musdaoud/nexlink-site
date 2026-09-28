@@ -50,11 +50,10 @@
   let sHero = 0, heroY = 0, sEnd = 0, endY = 0;
   let nodes = [];
   let tip = 0, tipPrev = 0, whip = 0, time = 0, last = performance.now();
-  let snap = true, connected = false, lastLen = '';
+  let snap = true, connected = false;
   let intro = reduced ? null : { t0: 0, crimped: false, started: false };
   const packets = [];
   let spawnIn = 0;
-  const hudLen = [...document.querySelectorAll('#hud-len, [data-hud-len]')];
 
   // per-frame buffers
   let cap = 0, CX, CY, CNX, CNY, CS, CF, CD, CU;
@@ -271,10 +270,6 @@
       window.dispatchEvent(new CustomEvent('cable:link', { detail: conn }));
     }
 
-    if (hudLen.length) {
-      const len = (tip / 160).toFixed(2) + ' m';
-      if (len !== lastLen) { hudLen.forEach(el => { el.textContent = len; }); lastLen = len; }
-    }
   }
 
   let light = false;

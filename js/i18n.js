@@ -44,10 +44,6 @@
       'cta.iso': 'Present my consulting needs',
       'cta.equip': 'Tell us your equipment needs',
 
-      'link.down': 'Link down',
-      'link.up': '10G up',
-      'link.shortDown': 'Down',
-      'link.shortUp': '10G up',
       'link.awaiting': 'Awaiting connection…',
       'link.established': 'Link established',
 
@@ -208,9 +204,6 @@
       'contact.address': 'To be confirmed — Algeria',
       'contact.hoursLabel': 'Hours',
       'contact.hours': 'Sun – Thu · 8:30 am – 5:00 pm',
-      'sw.latency': 'Latency',
-      'sw.throughput': 'Throughput',
-      'sw.packets': 'Packets',
 
       'form.name': 'Full name',
       'form.namePh': 'First and last name',
@@ -262,8 +255,6 @@
       'footer.rights': 'All rights reserved.',
       'footer.baseline': 'CONNECTED SOLUTIONS • DIGITAL FUTURE',
 
-      'hud.cable': 'Cable',
-      'hud.link': 'Link',
     },
 
     fr: {
@@ -296,10 +287,6 @@
       'cta.iso': 'Présenter mon besoin en conseil',
       'cta.equip': 'Exprimer un besoin en équipements',
 
-      'link.down': 'Lien coupé',
-      'link.up': '10G actif',
-      'link.shortDown': 'Coupé',
-      'link.shortUp': '10G actif',
       'link.awaiting': 'En attente de connexion…',
       'link.established': 'Connexion établie',
 
@@ -460,9 +447,6 @@
       'contact.address': 'À confirmer — Algérie',
       'contact.hoursLabel': 'Horaires',
       'contact.hours': 'Dim – Jeu · 08h30 – 17h00',
-      'sw.latency': 'Latence',
-      'sw.throughput': 'Débit',
-      'sw.packets': 'Paquets',
 
       'form.name': 'Nom complet',
       'form.namePh': 'Nom et prénom',
@@ -514,8 +498,6 @@
       'footer.rights': 'Tous droits réservés.',
       'footer.baseline': 'SOLUTIONS CONNECTÉES • AVENIR DIGITAL',
 
-      'hud.cable': 'Câble',
-      'hud.link': 'Lien',
     },
   };
 

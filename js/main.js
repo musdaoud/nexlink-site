@@ -153,20 +153,11 @@
 
   /* link state: the plug reached the switch port */
   const t = key => (window.HL_I18N ? window.HL_I18N.t(key) : key);
-  const shortTexts = document.querySelectorAll('[data-link-text]');
-  const tinyTexts = document.querySelectorAll('[data-link-short]');
   const longText = document.querySelector('[data-link-long]');
   const leds = [...document.querySelectorAll('.sw-leds i')];
-  const metrics = {
-    lat: document.querySelector('[data-metric="lat"]'),
-    thr: document.querySelector('[data-metric="thr"]'),
-    pkt: document.querySelector('[data-metric="pkt"]'),
-  };
-  let ledTimers = [], metricTimer = null, packets = 0, linkUp = false;
+  let ledTimers = [], ledTimer = null, linkUp = false;
 
   const renderLinkTexts = () => {
-    shortTexts.forEach(el => { el.textContent = t(linkUp ? 'link.up' : 'link.down'); });
-    tinyTexts.forEach(el => { el.textContent = t(linkUp ? 'link.shortUp' : 'link.shortDown'); });
     if (longText) longText.textContent = t(linkUp ? 'link.established' : 'link.awaiting');
   };
   renderLinkTexts();
@@ -176,7 +167,7 @@
     renderLinkTexts();
 
     ledTimers.forEach(clearTimeout); ledTimers = [];
-    clearInterval(metricTimer);
+    clearInterval(ledTimer);
 
     if (linkUp) {
       leds.forEach((led, i) => {
@@ -185,11 +176,8 @@
           if (Math.random() < .1) led.classList.add('red');
         }, 40 + i * 35));
       });
-      metricTimer = setInterval(() => {
-        metrics.lat.textContent = (0.3 + Math.random() * .3).toFixed(2) + ' ms';
-        metrics.thr.textContent = (9.2 + Math.random() * .7).toFixed(1) + ' Gbps';
-        packets += Math.floor(9000 + Math.random() * 6000);
-        metrics.pkt.textContent = packets.toLocaleString(document.documentElement.lang === 'fr' ? 'fr-FR' : 'en-US');
+      // port lights keep flickering like a real switch
+      ledTimer = setInterval(() => {
         leds.forEach(l => {
           l.classList.toggle('idle', Math.random() < .35);          // traffic flicker
           if (Math.random() < .03) l.classList.toggle('red');       // the odd error light
@@ -197,8 +185,6 @@
       }, 450);
     } else {
       leds.forEach(l => l.classList.remove('on', 'red', 'idle'));
-      metrics.lat.textContent = '— ms';
-      metrics.thr.textContent = '— Gbps';
     }
   });
 
@@ -371,13 +357,6 @@
       submitLabel.textContent = t('form.send');
     }
   });
-
-  /* HUD steps aside for the footer */
-  const hud = document.querySelector('.hud');
-  const footer = document.querySelector('.footer');
-  if (hud && footer) {
-    new IntersectionObserver(([e]) => hud.classList.toggle('is-hidden', e.isIntersecting)).observe(footer);
-  }
 
   /* mobile action bar: appears after the hero, steps aside for contact/footer and the menu */
   const mCta = document.getElementById('m-cta');
